@@ -9,6 +9,9 @@
     <toc-element topic="Overview.md">
     </toc-element>
     <toc-element topic="How-to-setup-a-Vue-and-Net-app.md"/>
+    <toc-element topic="NET-Minimal-Todo-App-API.md">
+        <toc-element topic="CORS-Allow-Requests-From-Your-Local-Client-App.md"/>
+    </toc-element>
     <toc-element topic="Use-MySQL-with-EF-Core.md"/>
     <toc-element topic="CSS-Common-Breakpoints.md"/>
 </instance-profile>
