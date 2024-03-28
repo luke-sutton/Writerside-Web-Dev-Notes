@@ -8,10 +8,26 @@
 
     <toc-element topic="Overview.md">
     </toc-element>
-    <toc-element topic="How-to-setup-a-Vue-and-Net-app.md"/>
-    <toc-element topic="NET-Minimal-Todo-App-API.md">
-        <toc-element topic="CORS-Allow-Requests-From-Your-Local-Client-App.md"/>
+    <toc-element topic="C.md">
+        <toc-element topic="Object-Oriented-Programming.md">
+            <toc-element topic="Fields-and-Properties.md"/>
+            <toc-element topic="Constructors.md"/>
+        </toc-element>
+        <toc-element topic="Parse.md"/>
     </toc-element>
-    <toc-element topic="Use-MySQL-with-EF-Core.md"/>
-    <toc-element topic="CSS-Common-Breakpoints.md"/>
+    <toc-element topic="NET.md">
+        <toc-element topic="NET-Minimal-Todo-App-API.md">
+            <toc-element topic="CORS-Allow-Requests-From-Your-Local-Client-App.md"/>
+        </toc-element>
+        <toc-element topic="Use-MySQL-with-EF-Core.md"/>
+    </toc-element>
+    <toc-element topic="Vue.md">
+        <toc-element topic="How-to-setup-a-Vue-and-Net-app.md"/>
+    </toc-element>
+    <toc-element topic="CSS.md">
+        <toc-element topic="CSS-Common-Breakpoints.md"/>
+    </toc-element>
+    <toc-element topic="Algorithims-and-Data-Structures.md">
+        <toc-element topic="Frequency-Counter-Pattern.md"/>
+    </toc-element>
 </instance-profile>

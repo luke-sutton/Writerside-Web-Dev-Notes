@@ -1,14 +1,29 @@
 # How to setup a Vue and .Net app
 
+### Update your software
+
+Open a terminal window and update your software installed via homebrew
+
+```Shell
+brew update && brew upgrade && brew autoremove && brew cleanup
+```
+
+You can set an alias to shorten the required text for frequently used commands.
+
 ### Create a folder for your new project
 
 Create a new folder in the location you would like to keep the project files
 and name the folder the title of your project.
 
+```shell
+cd Dev
+mkdir "project name"
+```
+
 ### Create the frontend application
 
-Open a terminal window pointing to the folder of your new project
-and enter the following command -
+In a terminal window pointing to the folder of your new project
+enter the following command -
 
 ```shell
 npm create vue@latest

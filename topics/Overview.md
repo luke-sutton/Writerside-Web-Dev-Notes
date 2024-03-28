@@ -9,10 +9,10 @@ and so I have created this site.
 These notes will focus on my chosen tech stack, which is -
 
 Frontend
-: Vue.js  or .Net mvc or plain HTML, CSS & JS  
+: Vue.js  or .Net MVC or plain HTML, CSS & JS  
 
 Backend
-: C# .Net or Javascript (node)  
+: C# .Net  
 
 Database
-: MySQL or MongoDB
+: MS SQL
