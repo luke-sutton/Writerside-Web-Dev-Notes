@@ -1,4 +1,6 @@
-# Parse
+# Parse & TryParse
+
+### Parse
 
 Parsing is a method to convert a string into another type.  
 

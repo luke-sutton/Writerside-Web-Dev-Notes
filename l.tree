@@ -9,11 +9,18 @@
     <toc-element topic="Overview.md">
     </toc-element>
     <toc-element topic="C.md">
+        <toc-element topic="Implicit-Explicit-Conversions.md"/>
+        <toc-element topic="Parse-and-TryParse.md"/>
+        <toc-element topic="Enums.md"/>
+        <toc-element topic="Working-with-JSON.md"/>
+        <toc-element topic="Expression-bodied-methods.md"/>
+        <toc-element topic="Lamda-Expressions.md"/>
         <toc-element topic="Object-Oriented-Programming.md">
             <toc-element topic="Fields-and-Properties.md"/>
             <toc-element topic="Constructors.md"/>
+            <toc-element topic="Inheritance.md"/>
+            <toc-element topic="Abstract-Classes-and-Interfaces.md"/>
         </toc-element>
-        <toc-element topic="Parse.md"/>
     </toc-element>
     <toc-element topic="NET.md">
         <toc-element topic="NET-Minimal-Todo-App-API.md">
