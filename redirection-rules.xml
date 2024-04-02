@@ -22,4 +22,20 @@
         <description>Created after removal of "Interfaces" from LamdaLuke</description>
         <accepts>Interfaces.html</accepts>
     </rule>
+    <rule id="b7484f0">
+        <description>Created after removal of "Data Structures" from LamdaLuke</description>
+        <accepts>Data-Structures.html</accepts>
+    </rule>
+    <rule id="11ce9da8">
+        <description>Created after removal of "Empty MD Topic" from LamdaLuke</description>
+        <accepts>Empty-MD-Topic.html</accepts>
+    </rule>
+    <rule id="15b01244">
+        <description>Created after removal of "List" from LamdaLuke</description>
+        <accepts>List.html</accepts>
+    </rule>
+    <rule id="6b838899">
+        <description>Created after removal of "Data Structures" from LamdaLuke</description>
+        <accepts>Data-Structures.html</accepts>
+    </rule>
 </rules>

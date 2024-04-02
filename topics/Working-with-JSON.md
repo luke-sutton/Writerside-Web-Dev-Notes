@@ -2,7 +2,7 @@
 
 ### Serialize
 
-In order to take convert a c# object into JSON you need to serialize it using the JsonSerializer.Serialize()
+In order to convert a c# object into JSON you need to serialize it using the JsonSerializer.Serialize()
 method.
 
 ```C#

@@ -11,15 +11,18 @@ Methods
 ```C#
 public class Rectangle
 {
+    // Properties
     public int Width { get; set; }
     public int Height { get; set; }
 
+    // Constructor
     public Rectangle(int width, int height)
     {
         Width = width;
         Height = height;
     }
 
+    // Methods
     public int CalculateCircumference()
     {
         return 2 * (Width + Height);

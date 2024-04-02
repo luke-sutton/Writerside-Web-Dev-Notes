@@ -1,3 +1,2 @@
 # Vue
 
-Start typing here...

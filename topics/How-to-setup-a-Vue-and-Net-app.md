@@ -2,13 +2,7 @@
 
 ### Update your software
 
-Open a terminal window and update your software installed via homebrew
-
-```Shell
-brew update && brew upgrade && brew autoremove && brew cleanup
-```
-
-You can set an alias to shorten the required text for frequently used commands.
+Ensure any relevant software is up-to-date, for example you have the latest LTS version of Node installed.
 
 ### Create a folder for your new project
 
@@ -32,6 +26,10 @@ npm create vue@latest
 When it asks you for a project name enter 'client' and then select the relevant
 options for your project.
 
+Note:
+: The name client can be replaced with any you wish, but client is the most common name given for the frontend
+part of an application like this.
+
 This will create a folder within your project folder called client,
 which is the common name for the frontend part of an application.
 
@@ -44,41 +42,37 @@ dotnet new web -o server
 ```
 
 This will create a folder within your project folder called server,
-which is the common name for the backend part of an application.
+
+Note:
+: The name server can be replaced with any you wish, but server is the most common name given for the backend
+part of an application like this.
 
 ### Initialise GIT
 
-In the same terminal window enter the following command -
+In a terminal window, cd into the project folders and enter the following command -
 
 ```shell
 git init
 ```
 
-This will create a git branch at the root of your project folder so that
-both the frontend and backend are included.
+If you cd into the main project folder this will create a git branch that will track and monitor both frontend
+and backend apps. If you prefer to keep them separate run the command within both the client and server
+folders.
 
 ### Running the project
 
-To run the frontend of your application open the project folder with your IDE of choice,
-then within the integrated terminal, change directory to your client folder,
-install the required npm packages and then run the app, you can do this by running the
-following commands -
+To run the frontend of your application open the client folder with your IDE of choice.
+install the required npm packages (only required the first time you run) and then run the app, you can do
+this by running the following commands -
 
 ```shell
-cd client
 npm install
 npm run dev
 ```
 
-To run the backend of your application, again open the project folder within your IDE of choice,
-then within the integrated terminal run change directory to the server folder and start
-the app -
+To run the backend of your application, open the server folder within your IDE of choice,
+then within the integrated terminal run the following to start the app -
 
 ```shell
-cd server
 dotnet run
 ```
-
-Opening and running the projects from the root project folder rather than the separate client
-and server folders allows you to have your full project (frontend and backend) in the same git
-repository.

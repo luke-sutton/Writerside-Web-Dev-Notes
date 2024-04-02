@@ -20,6 +20,7 @@ The above example will convert the string into a DateTime object.
 
 The TryParse returns a bool stating if parsing the input would be successful as well as the result or a default value
 if unsuccessful.  
+This is beneficial as if the parse method is unsuccessful it will result in an error.
 
 ```C#
 var userInput = Console.ReadLine();

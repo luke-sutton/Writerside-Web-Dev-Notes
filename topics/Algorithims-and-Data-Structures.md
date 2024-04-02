@@ -1,3 +1,2 @@
 # Algorithims and Data Structures
 
-Start typing here...

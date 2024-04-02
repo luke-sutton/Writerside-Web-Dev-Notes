@@ -107,5 +107,5 @@ public class Rectangle
 }
 ```
 
-THis allows us to remove one of the constructors, this will have the same effect that a Rectangle object can
+This allows us to remove one of the constructors, this will have the same effect that a Rectangle object can
 be created with only the width and height values provided and it will be given a default name.

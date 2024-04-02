@@ -12,7 +12,6 @@ Lamda expressions are mostly used when a method needs to be passed as a paramete
 
 For example -
 ```C#
-int[] numbers = { 3, 10, 4, 6, 8 };
 static bool isTen(int n) {
   return n == 10;
 }

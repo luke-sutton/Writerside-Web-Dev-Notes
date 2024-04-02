@@ -1,5 +1,7 @@
 # Frequency Counter Pattern
 
+JavaScript solution
+
 ```Javascript
 function same(arr1, arr2) {
   if (arr1.length !== arr2.length) {
@@ -45,8 +47,8 @@ Here is a simplified explanation of this function:
 3. Then the function iterates over each array using a 'for...of' loop. For each element in the array, the function increments the corresponding frequency counter of that element by one in the respective counter object. If the element does not exist in the object, it is added with a frequency of 1.
 
 4. After that, the function enters another loop using 'for...in', this time over the properties of 'frequencyCounter1'. In this loop, the function checks two conditions:
-- If the square of the current key doesn't exist in 'frequencyCounter2', it returns false, signifying the two input arrays are not 'same'.
-- If the frequency of the square of the current key in 'frequencyCounter2' is not the same as the frequency of the current key in 'frequencyCounter1', it also returns false.
+   - If the square of the current key doesn't exist in 'frequencyCounter2', it returns false, signifying the two input arrays are not 'same'.
+   - If the frequency of the square of the current key in 'frequencyCounter2' is not the same as the frequency of the current key in 'frequencyCounter1', it also returns false.
 
 5. If the function hasn't returned false by the end of these checks, that means the two arrays passed all the checks, and it returns true - the arrays are 'same'.
 

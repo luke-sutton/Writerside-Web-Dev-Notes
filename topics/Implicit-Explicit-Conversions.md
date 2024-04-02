@@ -2,7 +2,7 @@
 
 ### Implicit Conversions
 
-In C# type conversions can be implicit if the conversion is considered safe and lossless.
+In C# type conversions can be implicit if the conversion is considered safe.
 
 For example converting an integer to a decimal.
 
@@ -15,7 +15,7 @@ In the above example the integer is converted from an integer to a decimal as th
 
 ### Explicit Conversions
 
-If the conversion is not considered safe and lossless the conversion must be made explicit.
+If the conversion is not considered safe the conversion must be made explicit.
 
 The syntax for this is placing the required type in brackets before the variable name.
 
