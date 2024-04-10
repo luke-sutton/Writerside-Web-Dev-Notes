@@ -33,3 +33,32 @@ class DataStore<TKey, TValue>
 Note:
 : When more than one generic type is used it is common practice to give them appropriate name with a
 T at the beginning.
+
+
+### Generic Methods
+
+Generic methods are created by using the generic type parameter after the method name -
+
+```C#
+public static void AddToFront<T>(List<T> list, T item)
+{
+    list.insert(0, item)
+}
+```
+
+When calling a generic method explicitly, you specify the type in the method call -
+
+```C#
+List<string> myStringList = new List<string>{ "Item1", "Item2", "Item3" };
+string myString = "NewFrontItem";
+Program.AddToFront<string>(myStringList, myString);
+```
+
+When calling a generic method implicitly, you skip specifying the type in the method call.
+The compiler infers the type from the arguments passed to the method -
+
+```C#
+List<int> myIntList = new List<int>{ 1, 2, 3 };
+int myInt = 0;
+Program.AddToFront(myIntList, myInt);
+```

@@ -1,0 +1,59 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-04-02T21:29:27.807267"><title>Abstract Classes &amp; Interfaces | LamdaLuke</title><script type="application/json" id="virtual-toc-data">[{"id":"abstract-classes","level":0,"title":"Abstract Classes","anchor":"#abstract-classes"},{"id":"interfaces","level":0,"title":"Interfaces","anchor":"#interfaces"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b224/app.css" rel="stylesheet"><link rel="manifest" href="site.webmanifest"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Abstract Classes &amp; Interfaces | LamdaLuke"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="LamdaLuke Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/abstract-classes-and-interfaces.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Abstract Classes &amp; Interfaces | LamdaLuke"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/abstract-classes-and-interfaces.html#webpage",
+    "url": "writerside-documentation/abstract-classes-and-interfaces.html",
+    "name": "Abstract Classes &amp; Interfaces | LamdaLuke",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "LamdaLuke Help"
+}</script><!-- End Schema.org --></head><body data-id="Abstract-Classes-and-Interfaces" data-main-title="Abstract Classes & Interfaces" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="C.md|C#///Object-Oriented-Programming.md|Object-Oriented Programming"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>LamdaLuke  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Abstract-Classes-and-Interfaces" id="Abstract-Classes-and-Interfaces.md">Abstract Classes & Interfaces</h1><dl id="-1i0g02_2" data-style="title-top"><dt id="-1i0g02_3" data-expandable="false">Note:</dt><dd><p id="-1i0g02_5">When to use which - As a general rule, you should use an abstract class when creating a base class that needs to be inherited by other classes in a class hierarchy. If you need to define a behavior that can be implemented by multiple unrelated classes, you should use an interface.</p></dd></dl><section class="chapter"><h2 id="abstract-classes" data-toc="abstract-classes">Abstract Classes</h2><p id="-1i0g02_6">Abstract classes are base classes that cannot be used to create classes, they are only created to be derived from.</p><p id="-1i0g02_7">They are created using the abstract modifier keyword.</p><p id="-1i0g02_8">They can contain constructors.</p><p id="-1i0g02_9">They can contain both abstract and regular methods.</p><p id="-1i0g02_10">Abstract methods can only be used in abstract classes and must be overridden in the derived class.</p><div class="code-block" data-lang="csharp">
+abstract class Animal
+{
+    // Abstract method
+    public abstract animalSound() 
+    
+    // Regular method
+    public void sleep()
+    {
+        Console.WriteLine(&quot;Zzz&quot;);
+    }
+}
+
+public class Pig : Animal
+{
+    public override void animalSound()
+    {
+        Console.WriteLine(&quot;Oink&quot;);
+    }
+}
+
+Pig myPig = new Pig(); // Create a Pig object
+myPig.animalSound();  // Call the abstract method
+myPig.sleep();  // Call the regular method
+</div></section><section class="chapter"><h2 id="interfaces" data-toc="interfaces">Interfaces</h2><p id="-1i0g02_12">An interface is similar to an abstract class, but whereas an abstract class may contain method definitions, fields, and constructors, an interface may only have declarations of events, methods, and properties.</p><p id="-1i0g02_13">They should be named using PascalCase and should begin with a capital I. (e.g. IShape)</p><p id="-1i0g02_14">Derived classes must implement all methods declared in the interface.</p><p id="-1i0g02_15">Classes can implement more than one interface, they should be listed separated with a comma.</p><div class="code-block" data-lang="csharp">
+// Interface
+interface IAnimal 
+{
+  void animalSound(); // interface method (does not have a body)
+}
+
+// Pig &quot;implements&quot; the IAnimal interface
+class Pig : IAnimal 
+{
+  public void animalSound() 
+  {
+    // The body of animalSound() is provided here
+    Console.WriteLine(&quot;The pig says: wee wee&quot;);
+  }
+}
+
+Pig myPig = new Pig();  // Create a Pig object
+myPig.animalSound();
+</div></section><div class="last-modified">Last modified: 02 April 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="inheritance.html" class="navigation-links__prev">Inheritance &amp; Polymorphism</a><a href="net.html" class="navigation-links__next">.NET</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b224/app.js"></script></body></html>

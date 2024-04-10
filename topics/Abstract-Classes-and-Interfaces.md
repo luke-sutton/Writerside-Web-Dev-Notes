@@ -56,21 +56,21 @@ Classes can implement more than one interface, they should be listed separated w
 
 ```C#
 // Interface
-interface IAnimal 
+interface ISound
 {
-  void animalSound(); // interface method (does not have a body)
+  void makeSound(); // interface method (does not have a body)
 }
 
-// Pig "implements" the IAnimal interface
-class Pig : IAnimal 
+// Pig "implements" the ISound interface
+class Pig : ISound
 {
-  public void animalSound() 
+  public void makeSound() 
   {
-    // The body of animalSound() is provided here
-    Console.WriteLine("The pig says: wee wee");
+    // The body of makeSound() is provided here
+    Console.WriteLine("The pig says: oink");
   }
 }
 
 Pig myPig = new Pig();  // Create a Pig object
-myPig.animalSound();
+myPig.makeSound();
 ```

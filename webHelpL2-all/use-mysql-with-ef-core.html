@@ -1,0 +1,56 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-04-02T21:29:27.808391"><title>Use MySQL with EF Core | LamdaLuke</title><script type="application/json" id="virtual-toc-data">[{"id":"install-required-nuget-packages","level":0,"title":"Install required nuget packages","anchor":"#install-required-nuget-packages"},{"id":"add-connection-string-to-appsetting-development-json","level":0,"title":"Add connection string to appsetting.development.json -","anchor":"#add-connection-string-to-appsetting-development-json"},{"id":"add-service-to-the-program-cs-file","level":0,"title":"Add service to the program.cs file -","anchor":"#add-service-to-the-program-cs-file"},{"id":"create-a-applicationdbcontext-cs-file-within-a-data-folder-in-the-project","level":0,"title":"Create a ApplicationDbContext.cs file within a Data folder in the project -","anchor":"#create-a-applicationdbcontext-cs-file-within-a-data-folder-in-the-project"},{"id":"running-migration-creating-database-from-code","level":0,"title":"Running migration (creating database from code) -","anchor":"#running-migration-creating-database-from-code"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b224/app.css" rel="stylesheet"><link rel="manifest" href="site.webmanifest"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Use MySQL with EF Core | LamdaLuke"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="LamdaLuke Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/use-mysql-with-ef-core.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Use MySQL with EF Core | LamdaLuke"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/use-mysql-with-ef-core.html#webpage",
+    "url": "writerside-documentation/use-mysql-with-ef-core.html",
+    "name": "Use MySQL with EF Core | LamdaLuke",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "LamdaLuke Help"
+}</script><!-- End Schema.org --></head><body data-id="Use-MySQL-with-EF-Core" data-main-title="Use MySQL with EF Core" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="NET.md|.NET"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>LamdaLuke  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Use-MySQL-with-EF-Core" id="Use-MySQL-with-EF-Core.md">Use MySQL with EF Core</h1><section class="chapter"><h2 id="install-required-nuget-packages" data-toc="install-required-nuget-packages">Install required nuget packages</h2><p id="aleeu_2">Nuget packages required -</p><p id="aleeu_3">Microsoft.EntityFrameworkCore.Design<br> Microsoft.EntityFrameworkCore.Tools<br> Pomelo.EntityFrameworkCore.MySql</p></section><section class="chapter"><h2 id="add-connection-string-to-appsetting-development-json" data-toc="add-connection-string-to-appsetting-development-json">Add connection string to appsetting.development.json -</h2><div class="code-block" data-lang="csharp">
+&quot;ConnectionStrings&quot;: {
+    &quot;ShirtStoreManagement&quot;: &quot;server=localhost;database=DatabaseName;user=root;password=password&quot;
+},
+</div></section><section class="chapter"><h2 id="add-service-to-the-program-cs-file" data-toc="add-service-to-the-program-cs-file">Add service to the program.cs file -</h2><div class="code-block" data-lang="csharp">
+builder.Services.AddDbContext&lt;ApplicationDbContext&gt;(options =&gt;
+{
+var connectionString = builder.Configuration.GetConnectionString(&quot;ShirtStoreManagement&quot;);
+    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+});
+</div></section><section class="chapter"><h2 id="create-a-applicationdbcontext-cs-file-within-a-data-folder-in-the-project" data-toc="create-a-applicationdbcontext-cs-file-within-a-data-folder-in-the-project">Create a ApplicationDbContext.cs file within a Data folder in the project -</h2><div class="code-block" data-lang="csharp">
+using API.Models;
+using Microsoft.EntityFrameworkCore;
+
+namespace API.Data;
+
+public class ApplicationDbContext : DbContext
+{
+public ApplicationDbContext(DbContextOptions options) : base(options)
+{
+}
+    public DbSet&lt;Shirt&gt; Shirts { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        // data seeding
+        modelBuilder.Entity&lt;Shirt&gt;().HasData(
+            new Shirt { ShirtId = 1, Brand = &quot;My Brand&quot;, Colour = &quot;Blue&quot;, Gender = &quot;Men&quot;, Price = 30, Size = 10 },
+            new Shirt { ShirtId = 2, Brand = &quot;My Brand&quot;, Colour = &quot;Black&quot;, Gender = &quot;Men&quot;, Price = 35, Size = 12 },
+            new Shirt { ShirtId = 3, Brand = &quot;Your Brand&quot;, Colour = &quot;Pink&quot;, Gender = &quot;Women&quot;, Price = 28, Size = 8 },
+            new Shirt { ShirtId = 4, Brand = &quot;Your Brand&quot;, Colour = &quot;Yellow&quot;, Gender = &quot;Women&quot;, Price = 30, Size = 9 }
+        );
+    }
+}
+</div><p id="aleeu_9">(This example is for a database containing information on shirts and contains data what we will populate the database with a selection of shirts as shown in the list in the code above)</p></section><section class="chapter"><h2 id="running-migration-creating-database-from-code" data-toc="running-migration-creating-database-from-code">Running migration (creating database from code) -</h2><p id="aleeu_10">in terminal go to project main folder with program.cs file run commands -</p><div class="code-block" data-lang="bash">
+Backend ef migrations add Init
+</div><p id="aleeu_12">(Init can be replaced with name of you choosing) After running this command a new migrations folder should be created within the project</p><div class="code-block" data-lang="bash">
+Backend ef migrations update Init
+</div><p id="aleeu_14">After running this command the MySQL database will be populated with your fields / data</p></section><div class="last-modified">Last modified: 02 April 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="cors-allow-requests-from-your-local-client-app.html" class="navigation-links__prev">CORS - Allow Requests From Your Local Client App</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b224/app.js"></script></body></html>

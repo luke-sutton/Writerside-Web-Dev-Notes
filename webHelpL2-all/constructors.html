@@ -1,0 +1,83 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-04-02T21:29:27.801547"><title>Constructors | LamdaLuke</title><script type="application/json" id="virtual-toc-data">[{"id":"constructor-overloading","level":0,"title":"Constructor Overloading","anchor":"#constructor-overloading"},{"id":"optional-parameters","level":0,"title":"Optional Parameters","anchor":"#optional-parameters"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b224/app.css" rel="stylesheet"><link rel="manifest" href="site.webmanifest"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Constructors | LamdaLuke"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="LamdaLuke Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/constructors.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Constructors | LamdaLuke"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/constructors.html#webpage",
+    "url": "writerside-documentation/constructors.html",
+    "name": "Constructors | LamdaLuke",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "LamdaLuke Help"
+}</script><!-- End Schema.org --></head><body data-id="Constructors" data-main-title="Constructors" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="C.md|C#///Object-Oriented-Programming.md|Object-Oriented Programming"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>LamdaLuke  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Constructors" id="Constructors.md">Constructors</h1><p id="-g3n5ib_2">Constructors set the initial values for created objects. <br> They should be named using PascalCase and have the same name as the class to which they belong.</p><div class="code-block" data-lang="csharp">
+public class Rectangle
+{
+    public int Width { get; set; }
+    public int Height { get; set; }
+
+    #This is the constructor
+    public Rectangle(int width, int height)
+    {
+        Width = width;
+        Height = height;
+    }
+}
+</div><p id="-g3n5ib_5">In order to create an object using the above class you would declare a new instance of it -</p><div class="code-block" data-lang="csharp">
+Rectangle rectangle = new(5, 10);
+</div><p id="-g3n5ib_7">In the above example the constructor of the Rectangle class is being called with the values 5 and 10. <br> The constructor assigns these values to the width and height fields using the properties of the class.</p><section class="chapter"><h2 id="constructor-overloading" data-toc="constructor-overloading">Constructor Overloading</h2><p id="-g3n5ib_9">Multiple constructors can be created for a class, they should have the same name and be differentiated by the properties being passed in.</p><div class="code-block" data-lang="csharp">
+public class Rectangle
+{
+    public string Name { get; set; }
+    public int Width { get; set; }
+    public int Height { get; set; }
+
+    public Rectangle(int width, int height)
+    {
+        Width = width;
+        Height = height;
+    }
+    
+    public Rectangle(int width, int height, string name)
+    {
+        Width = width;
+        Height = height;
+        Name = name;
+    }
+}
+</div><p id="-g3n5ib_11">In the above example if a Rectangle class is created with two integers the first constructor will be called. <br> If the class is created with two integers and a string the 2nd will be called.</p><p id="-g3n5ib_13">It is also possible to call one constructor from another using the 'this' keyword.</p><div class="code-block" data-lang="csharp">
+public class Rectangle
+{
+    public string Name { get; set; }
+    public int Width { get; set; }
+    public int Height { get; set; }
+
+    public Rectangle(int width, int height) : this(width, height, &quot;default name&quot;)
+    {
+    }
+    
+    public Rectangle(int width, int height, string name)
+    {
+        Width = width;
+        Height = height;
+        Name = name;
+    }
+}
+</div><p id="-g3n5ib_15">In the above reworked example as the duplicated code in the constructors has been removed. <br> If a Rectangle class is created with just two integers the first class is called, this then calls the 2nd constructor passing in the provided integers as well as a default name for the string parameter.</p></section><section class="chapter"><h2 id="optional-parameters" data-toc="optional-parameters">Optional Parameters</h2><p id="-g3n5ib_17">It is also possible to have parameters that are optional and to have a default value set for them.</p><p id="-g3n5ib_18">Default Parameters must be placed after the required ones.</p><p id="-g3n5ib_19">Using the previous example we can shorten the code further using default parameters -</p><div class="code-block" data-lang="csharp">
+public class Rectangle
+{
+    public string Name { get; set; }
+    public int Width { get; set; }
+    public int Height { get; set; }
+    
+    public Rectangle(int width, int height, string name = &quot;default name&quot;)
+    {
+        Width = width;
+        Height = height;
+        Name = name;
+    }
+}
+</div><p id="-g3n5ib_21">This allows us to remove one of the constructors, this will have the same effect that a Rectangle object can be created with only the width and height values provided and it will be given a default name.</p></section><div class="last-modified">Last modified: 02 April 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="fields-and-properties.html" class="navigation-links__prev">Fields and Properties</a><a href="inheritance.html" class="navigation-links__next">Inheritance &amp; Polymorphism</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b224/app.js"></script></body></html>

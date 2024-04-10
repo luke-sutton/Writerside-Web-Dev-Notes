@@ -29,8 +29,8 @@ public class Luke : Person
 }
 ```
 
-In this example after a new instance of the Luke class will have access to the Age property and the sayGreeting
-method.
+In this example after a new instance of the Luke class is created it will have access to the Age property
+and the sayGreeting method.
 
 You can use the base keyword to access the base class from a derived class
 

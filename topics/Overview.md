@@ -11,7 +11,7 @@ to me everywhere, And if they can help anyone else that's great!
 These notes will focus on my tech stack, which is -
 
 Frontend
-: Vue.js  or .Net MVC or plain HTML, CSS & JS  
+: Vue.js, .Net MVC, TypeScript or plain HTML, CSS & JS  
 
 Backend
 : C# .Net  

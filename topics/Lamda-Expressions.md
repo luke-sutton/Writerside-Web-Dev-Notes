@@ -1,8 +1,8 @@
 # Lamda Expressions
 
-Lamda Expressions are also known as anonymous functions, and are another shorthand for writing functions.
+Lamda Expressions are also known as anonymous functions, are another shorthand for writing functions.
 
-The syntax looks very similar to that used to create expression-bodied methods.
+The syntax looks very similar to that used to create expression-bodied methods except they do not have a name.
 
 ```C#
 (input-parameters) => {statements}
@@ -19,11 +19,70 @@ static bool isTen(int n) {
 Array.Exists(numbers, isTen);
 ```
 
-Can be shortened to -
+Can be shortened by placing the function logic as a lamda as a 2nd parameter -
 ```C#
 Array.Exists(numbers, (int n) => {
   return n == 10;
 });
+```
+
+This can be shortened further to -
+
+```C#
+Array.Exists(numbers, n => n == 10);
+```
+
+The following code is from the notes on using the Func delegate -
+
+```C#
+var numbers = new[] { 1, 4, 7, 19 ,2};
+
+IsLargerThan10(numbers, IsLargerThan10);
+IsEvan(numbers, IsEven)
+
+bool IsAny(IEnumerable<int> numbers, Func<int,bool> predicate)
+{
+    foreach (var number in numbers)
+    {
+        if (pridicate(number))
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+bool IsLargerThan10(int number)
+{
+    return number > 0;
+}
+
+bool IsEven(int number)
+{
+    return number % 2 == 0;
+}
+```
+
+This code can be simplified using lamda expressions as the 2nd parameter, allowing the
+separate functions to be removed -
+
+```C#
+var numbers = new[] { 1, 4, 7, 19 ,2};
+
+IsAny(numbers, n => n > 10);
+IsAny(numbers, n => n % 2 ==0);
+
+bool IsAny(IEnumerable<int> numbers, Func<int,bool> predicate)
+{
+    foreach (var number in numbers)
+    {
+        if (pridicate(number))
+        {
+            return true;
+        }
+    }
+    return false;
+}
 ```
 
 ### Shorter Lamda Expressions

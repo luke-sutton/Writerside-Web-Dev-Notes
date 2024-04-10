@@ -1,0 +1,95 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-04-02T21:29:27.80073"><title>.NET Todo App Minimal API | LamdaLuke</title><script type="application/json" id="virtual-toc-data">[{"id":"create-a-temporary-database","level":0,"title":"Create a temporary database","anchor":"#create-a-temporary-database"},{"id":"add-the-model-and-database-context-classes","level":0,"title":"Add the model and database context classes","anchor":"#add-the-model-and-database-context-classes"},{"id":"add-the-api-code","level":0,"title":"Add the API code","anchor":"#add-the-api-code"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b224/app.css" rel="stylesheet"><link rel="manifest" href="site.webmanifest"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content=".NET Todo App Minimal API | LamdaLuke"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="LamdaLuke Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/net-minimal-todo-app-api.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content=".NET Todo App Minimal API | LamdaLuke"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/net-minimal-todo-app-api.html#webpage",
+    "url": "writerside-documentation/net-minimal-todo-app-api.html",
+    "name": ".NET Todo App Minimal API | LamdaLuke",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "LamdaLuke Help"
+}</script><!-- End Schema.org --></head><body data-id="NET-Minimal-Todo-App-API" data-main-title=".NET Todo App Minimal API" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="NET.md|.NET"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>LamdaLuke  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="NET-Minimal-Todo-App-API" id="NET-Minimal-Todo-App-API.md">.NET Todo App Minimal API</h1><p id="-3xdioo_2">Create your app by running the following terminal command -</p><div class="code-block" data-lang="bash">
+dotnet new web -o server
+</div><dl id="-3xdioo_4" data-style="title-top"><dt id="-3xdioo_5" data-expandable="false">Note:</dt><dd><p id="-3xdioo_7">The name 'server' can be replaced with whatever name you wish for the API</p></dd></dl><section class="chapter"><h2 id="create-a-temporary-database" data-toc="create-a-temporary-database">Create a temporary database</h2><p id="-3xdioo_8">Installing the following NuGet packages will set up a temporary in memory database allowing you to store information without a database in place, and the data will be cleared each time you stop the app running -</p><div class="code-block" data-lang="csharp">
+dotnet add package Microsoft.EntityFrameworkCore.InMemory
+dotnet add package Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore
+</div><p id="-3xdioo_10">Alternatively you can set up your connection to your actual database of choice.</p></section><section class="chapter"><h2 id="add-the-model-and-database-context-classes" data-toc="add-the-model-and-database-context-classes">Add the model and database context classes</h2><p id="-3xdioo_11">Create a new file named Todo.cs and add the following code -</p><div class="code-block" data-lang="csharp">
+public class Todo
+{
+    public int Id { get; set; }
+    public string? Name { get; set; }
+    public bool IsComplete { get; set; }
+}
+</div><p id="-3xdioo_13">Create a file named TodoDb.cs and add the following code -</p><div class="code-block" data-lang="csharp">
+using Microsoft.EntityFrameworkCore;
+
+class TodoDb : DbContext
+{
+    public TodoDb(DbContextOptions&lt;TodoDb&gt; options)
+        : base(options) { }
+
+    public DbSet&lt;Todo&gt; Todos =&gt; Set&lt;Todo&gt;();
+}
+</div></section><section class="chapter"><h2 id="add-the-api-code" data-toc="add-the-api-code">Add the API code</h2><p id="-3xdioo_15">Replace the contents of the Program.cs with the following code -</p><div class="code-block" data-lang="csharp">
+using Microsoft.EntityFrameworkCore;
+
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext&lt;TodoDb&gt;(opt =&gt; opt.UseInMemoryDatabase(&quot;TodoList&quot;));
+builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+var app = builder.Build();
+
+var todoItems = app.MapGroup(&quot;/todoitems&quot;);
+
+todoItems.MapGet(&quot;/&quot;, async (TodoDb db) =&gt;
+    await db.Todos.ToListAsync());
+
+todoItems.MapGet(&quot;/complete&quot;, async (TodoDb db) =&gt;
+    await db.Todos.Where(t =&gt; t.IsComplete).ToListAsync());
+
+todoItems.MapGet(&quot;/{id}&quot;, async (int id, TodoDb db) =&gt;
+    await db.Todos.FindAsync(id)
+        is Todo todo
+            ? Results.Ok(todo)
+            : Results.NotFound());
+
+todoItems.MapPost(&quot;/&quot;, async (Todo todo, TodoDb db) =&gt;
+{
+    db.Todos.Add(todo);
+    await db.SaveChangesAsync();
+
+    return Results.Created($&quot;/todoitems/{todo.Id}&quot;, todo);
+});
+
+todoItems.MapPut(&quot;/{id}&quot;, async (int id, Todo inputTodo, TodoDb db) =&gt;
+{
+    var todo = await db.Todos.FindAsync(id);
+
+    if (todo is null) return Results.NotFound();
+
+    todo.Name = inputTodo.Name;
+    todo.IsComplete = inputTodo.IsComplete;
+
+    await db.SaveChangesAsync();
+
+    return Results.NoContent();
+});
+
+todoItems.MapDelete(&quot;/{id}&quot;, async (int id, TodoDb db) =&gt;
+{
+    if (await db.Todos.FindAsync(id) is Todo todo)
+    {
+        db.Todos.Remove(todo);
+        await db.SaveChangesAsync();
+        return Results.NoContent();
+    }
+
+    return Results.NotFound();
+});
+
+app.Run();
+</div></section><div class="last-modified">Last modified: 02 April 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="net.html" class="navigation-links__prev">.NET</a><a href="cors-allow-requests-from-your-local-client-app.html" class="navigation-links__next">CORS - Allow Requests From Your Local Client App</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.6.6-b224/app.js"></script></body></html>

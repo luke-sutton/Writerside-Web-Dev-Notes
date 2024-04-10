@@ -38,4 +38,16 @@
         <description>Created after removal of "Data Structures" from LamdaLuke</description>
         <accepts>Data-Structures.html</accepts>
     </rule>
+    <rule id="170ab1dc">
+        <description>Created after removal of "Empty MD Topic" from LamdaLuke</description>
+        <accepts>Empty-MD-Topic.html</accepts>
+    </rule>
+    <rule id="185a61ec">
+        <description>Created after removal of "Algorithims and Data Structures" from LamdaLuke</description>
+        <accepts>Algorithims-and-Data-Structures.html</accepts>
+    </rule>
+    <rule id="98aec07">
+        <description>Created after removal of "Algorithms" from LamdaLuke</description>
+        <accepts>Algorithms.html</accepts>
+    </rule>
 </rules>

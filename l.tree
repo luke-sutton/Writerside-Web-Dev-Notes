@@ -15,33 +15,47 @@
         <toc-element topic="CSS-Common-Breakpoints.md"/>
     </toc-element>
     <toc-element topic="JavaScript.md">
-        <toc-element topic="Algorithims-and-Data-Structures.md">
-            <toc-element topic="Frequency-Counter-Pattern.md"/>
-        </toc-element>
     </toc-element>
+    <toc-element topic="TypeScript.md"/>
     <toc-element topic="Vue.md">
         <toc-element topic="How-to-setup-a-Vue-and-Net-app.md"/>
     </toc-element>
     <toc-element topic="C.md">
-        <toc-element topic="Implicit-Explicit-Conversions.md"/>
-        <toc-element topic="Parse-and-TryParse.md"/>
-        <toc-element topic="Enums.md">
-        </toc-element>
-        <toc-element topic="Working-with-JSON.md"/>
-        <toc-element topic="Generic-Types.md"/>
-        <toc-element topic="Expression-bodied-methods.md"/>
-        <toc-element topic="Lamda-Expressions.md"/>
         <toc-element topic="Object-Oriented-Programming.md">
             <toc-element topic="Fields-and-Properties.md"/>
             <toc-element topic="Constructors.md"/>
             <toc-element topic="Inheritance.md"/>
             <toc-element topic="Abstract-Classes-and-Interfaces.md"/>
         </toc-element>
+        <toc-element topic="Collections.md">
+            <toc-element topic="List-IEnumerable.md"/>
+            <toc-element topic="Dictionary.md"/>
+        </toc-element>
+        <toc-element topic="Extension-Methods.md"/>
+        <toc-element topic="Implicit-Explicit-Conversions.md"/>
+        <toc-element topic="Parse-and-TryParse.md"/>
+        <toc-element topic="Enums.md">
+        </toc-element>
+        <toc-element topic="Working-with-JSON.md"/>
+        <toc-element topic="Delegates.md">
+            <toc-element topic="Action-and-Func.md"/>
+        </toc-element>
+        <toc-element topic="Expression-bodied-methods.md"/>
+        <toc-element topic="Lamda-Expressions.md">
+        </toc-element>
+        <toc-element topic="Generic-Types.md"/>
+        <toc-element topic="Tuples.md"/>
     </toc-element>
     <toc-element topic="NET.md">
         <toc-element topic="NET-Minimal-Todo-App-API.md">
             <toc-element topic="CORS-Allow-Requests-From-Your-Local-Client-App.md"/>
         </toc-element>
         <toc-element topic="Use-MySQL-with-EF-Core.md"/>
+    </toc-element>
+    <toc-element topic="SQL.md"/>
+    <toc-element topic="Git.md"/>
+    <toc-element topic="Algorithims.md">
+        <toc-element topic="Get-Min-Max-Values.md"/>
+        <toc-element topic="Frequency-Counter-Pattern.md"/>
     </toc-element>
 </instance-profile>

@@ -79,7 +79,7 @@ public class Rectangle
 }
 ```
 
-In the above reworked example as the duplicated code in the constructors has been removed.  
+In the above example the duplicated code in the constructors has been removed.  
 If a Rectangle class is created with just two integers the first class is called, this then calls
 the 2nd constructor passing in the provided integers as well as a default name for the string parameter.
 
