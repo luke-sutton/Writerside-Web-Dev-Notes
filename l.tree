@@ -56,6 +56,7 @@
     <toc-element topic="SQL.md"/>
     <toc-element topic="Git.md"/>
     <toc-element topic="Design-Patterns.md">
+        <toc-element topic="Decorator-Design-Pattern.md"/>
         <toc-element topic="SOLID.md">
             <toc-element topic="Single-Responsibility-Principle.md"/>
             <toc-element topic="Open-Closed-Principle.md"/>
