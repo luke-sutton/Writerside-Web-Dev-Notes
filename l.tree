@@ -46,6 +46,12 @@
         </toc-element>
         <toc-element topic="Generic-Types.md"/>
         <toc-element topic="Tuples.md"/>
+        <toc-element topic="LINQ.md">
+            <toc-element topic="Any.md"/>
+            <toc-element topic="All.md"/>
+            <toc-element topic="Count.md"/>
+            <toc-element topic="Contains.md"/>
+        </toc-element>
     </toc-element>
     <toc-element topic="NET.md">
         <toc-element topic="NET-Minimal-Todo-App-API.md">
