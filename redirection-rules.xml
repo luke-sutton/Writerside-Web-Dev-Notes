@@ -50,4 +50,16 @@
         <description>Created after removal of "Algorithms" from LamdaLuke</description>
         <accepts>Algorithms.html</accepts>
     </rule>
+    <rule id="5edb3c7a">
+        <description>Created after removal of "PWA Boilerplate" from LamdaLuke</description>
+        <accepts>PWA-Boilerplate.html</accepts>
+    </rule>
+    <rule id="5a5e9357">
+        <description><![CDATA[Created after removal of "Implicit & Explicit Conversions" from LamdaLuke]]></description>
+        <accepts>Implicit-Explicit-Conversions.html</accepts>
+    </rule>
+    <rule id="78801c51">
+        <description><![CDATA[Created after removal of "Parse & TryParse" from LamdaLuke]]></description>
+        <accepts>Parse-and-TryParse.html</accepts>
+    </rule>
 </rules>

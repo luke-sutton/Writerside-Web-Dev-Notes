@@ -12,6 +12,7 @@
         <toc-element topic="Emmet.md"/>
     </toc-element>
     <toc-element topic="CSS.md">
+        <toc-element topic="SPA-Boilerplate.md"/>
         <toc-element topic="CSS-Common-Breakpoints.md"/>
     </toc-element>
     <toc-element topic="JavaScript.md">
@@ -22,6 +23,7 @@
         <toc-element topic="How-to-setup-a-Vue-and-Net-app.md"/>
     </toc-element>
     <toc-element topic="C.md">
+        <toc-element topic="Type-Conversions.md"/>
         <toc-element topic="Object-Oriented-Programming.md">
             <toc-element topic="Fields-and-Properties.md"/>
             <toc-element topic="Constructors.md"/>
@@ -32,9 +34,15 @@
             <toc-element topic="List-IEnumerable.md"/>
             <toc-element topic="Dictionary.md"/>
         </toc-element>
+        <toc-element topic="LINQ.md">
+            <toc-element topic="Any.md"/>
+            <toc-element topic="All.md"/>
+            <toc-element topic="Count.md"/>
+            <toc-element topic="Contains.md"/>
+            <toc-element topic="OrderBy.md"/>
+            <toc-element topic="First-and-Last.md"/>
+        </toc-element>
         <toc-element topic="Extension-Methods.md"/>
-        <toc-element topic="Implicit-Explicit-Conversions.md"/>
-        <toc-element topic="Parse-and-TryParse.md"/>
         <toc-element topic="Enums.md">
         </toc-element>
         <toc-element topic="Working-with-JSON.md"/>
@@ -46,12 +54,6 @@
         </toc-element>
         <toc-element topic="Generic-Types.md"/>
         <toc-element topic="Tuples.md"/>
-        <toc-element topic="LINQ.md">
-            <toc-element topic="Any.md"/>
-            <toc-element topic="All.md"/>
-            <toc-element topic="Count.md"/>
-            <toc-element topic="Contains.md"/>
-        </toc-element>
     </toc-element>
     <toc-element topic="NET.md">
         <toc-element topic="NET-Minimal-Todo-App-API.md">
