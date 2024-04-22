@@ -1,5 +1,8 @@
 # OrderBy
 
+Note:
+:  Sort collections by order
+
 The OrderBy method is used to sort collections in ascending order.
 
 ```C#

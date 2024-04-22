@@ -1,5 +1,11 @@
 # Type Conversions
 
+Note:
+:  When to use which method -  
+If you are converting from a string use parse.  
+If you are converting from another type use a cast or implicit conversion.  
+If a cast is not possible, or you are unsure of the types involved use Convert.
+
 ### Implicit Conversions
 
 In C# type conversions can be implicit if the conversion is considered safe.
