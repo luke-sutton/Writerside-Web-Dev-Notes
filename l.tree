@@ -20,6 +20,10 @@
     </toc-element>
     <toc-element topic="TypeScript.md"/>
     <toc-element topic="Vue.md">
+        <toc-element topic="Options-API-vs-Composition-API.md"/>
+        <toc-element topic="Refs-Reactive-Objects-Non-Reactive-Data.md"/>
+        <toc-element topic="Methods-Computed-Watch.md"/>
+        <toc-element topic="Lifecycle-Hooks.md"/>
         <toc-element topic="How-to-setup-a-Vue-and-Net-app.md"/>
     </toc-element>
     <toc-element topic="C.md">
@@ -41,6 +45,9 @@
             <toc-element topic="Contains.md"/>
             <toc-element topic="OrderBy.md"/>
             <toc-element topic="First-and-Last.md"/>
+            <toc-element topic="Where.md"/>
+            <toc-element topic="Distinct.md"/>
+            <toc-element topic="Select.md"/>
         </toc-element>
         <toc-element topic="Extension-Methods.md"/>
         <toc-element topic="Enums.md">
@@ -59,7 +66,6 @@
         <toc-element topic="NET-Minimal-Todo-App-API.md">
             <toc-element topic="CORS-Allow-Requests-From-Your-Local-Client-App.md"/>
         </toc-element>
-        <toc-element topic="Use-MySQL-with-EF-Core.md"/>
     </toc-element>
     <toc-element topic="SQL.md"/>
     <toc-element topic="Git.md"/>

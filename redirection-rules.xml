@@ -62,4 +62,12 @@
         <description><![CDATA[Created after removal of "Parse & TryParse" from LamdaLuke]]></description>
         <accepts>Parse-and-TryParse.html</accepts>
     </rule>
+    <rule id="35ec8c4">
+        <description>Created after removal of "Use MySQL with EF Core" from LamdaLuke</description>
+        <accepts>Use-MySQL-with-EF-Core.html</accepts>
+    </rule>
+    <rule id="1b902ee0">
+        <description>Created after removal of "Data Types" from LamdaLuke</description>
+        <accepts>Data-Types.html</accepts>
+    </rule>
 </rules>
