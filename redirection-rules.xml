@@ -70,4 +70,8 @@
         <description>Created after removal of "Data Types" from LamdaLuke</description>
         <accepts>Data-Types.html</accepts>
     </rule>
+    <rule id="39b2acb6">
+        <description>Created after removal of "Empty MD Topic" from LamdaLuke</description>
+        <accepts>Empty-MD-Topic.html</accepts>
+    </rule>
 </rules>
