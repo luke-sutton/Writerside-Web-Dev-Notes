@@ -5,7 +5,7 @@
 You can use the v-for directive in a template to loop through data.   
 For example rather than this hard coded list -
 
-```Javascript
+```html
 <ul>
   <li>
     <RouterLink to="/postDetail/id1">Post 1</RouterLink>
@@ -42,7 +42,7 @@ const posts = ref([
 </script>
 ```
 
-```Javascript
+```html
 <ul>
   <li v-for="post in posts" :key="post.id">
     <RouterLink :to="`/postDetail/${ post.id }`">{{ post.title }}</RouterLink>
@@ -56,7 +56,7 @@ Template refs are simply refs (reactive data) that are created within a template
 
 To create a ref you use the ref directive and the naming convention is to end the name with Ref -
 
-```Javascript
+```html
 <h2 ref="appTitleRef">{{ appTitle }}</h2>
 ```
 
@@ -76,3 +76,41 @@ onMounted(() => {
 
 In this example the width of the title is printed to the console, and as it is a reactive property
 the width will update in the console when the width changes.
+
+### Next Tick
+
+Next tick allows us to wait for the DOM to do something and then perform an action once the DOM has updated.
+
+```Javascript
+import { nextTick } from "vue"
+
+nextTick(() => {
+    console.log('do something when counter has updated in the dom')
+  })
+```
+
+
+### Teleport
+
+Teleporting allows us to move an element from its default place in the DOM to somewhere else in the DOM.
+
+In order to teleport an element you need to surround the element with a teleport tag, and specify where 
+in the DOM it should be placed -
+
+```html
+<template>
+  <div class="modals">
+    <h1>Modals</h1>
+    <button @click="showModal = true">Show modal</button>
+    <teleport to="body">
+      <div v-if="showModal" class="modal">
+        <h1>This is a modal</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequuntur dolor eaque in, ipsa laborum
+          natus nobis, nostrum omnis rem, repudiandae sequi voluptatibus? Atque beatae dignissimos earum, exercitationem fugiat quibusdam?
+        </p>
+        <button @click="showModal = false">Hide modal</button>
+      </div>
+    </teleport>
+  </div>
+</template>
+```

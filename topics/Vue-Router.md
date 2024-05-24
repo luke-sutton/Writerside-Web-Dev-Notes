@@ -6,7 +6,7 @@ You can use $route within a template to access the route.
 
 For example to access the id from this url - http://localhost:5173/postDetail/id1
 
-```Javascript
+```html
 <p>Display the content of post with ID of {{ $route.params.id }} here!</p>
 ```
 

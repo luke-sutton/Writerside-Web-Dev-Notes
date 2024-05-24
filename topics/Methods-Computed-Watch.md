@@ -6,7 +6,7 @@ Methods are written with standard javascript notation.
 
 Example on how to pass arguments to methods in vue -
 
-```Javascript
+```html
 <template>
 <div class="home">
 
@@ -73,7 +73,7 @@ const computedPropertyName = computed(() => {
 Here is an example of a simple counter with a computed property to state if the value is
 odd or even, the computed property method will only be called when the value of the counter changes -
 
-```Javascript
+```HTML
 <template>
 <div class="home">
 
