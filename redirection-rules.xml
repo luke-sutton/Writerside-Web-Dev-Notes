@@ -74,4 +74,12 @@
         <description>Created after removal of "Empty MD Topic" from LamdaLuke</description>
         <accepts>Empty-MD-Topic.html</accepts>
     </rule>
+    <rule id="34a5dcc3">
+        <description>Created after removal of "Simple Modal Example" from LamdaLuke</description>
+        <accepts>Simple-Modal-Example.html</accepts>
+    </rule>
+    <rule id="5da0dbbc">
+        <description><![CDATA[Created after removal of "<Simple-Modal-Example.md>" from LamdaLuke]]></description>
+        <accepts>Simple-Modal-Example.html</accepts>
+    </rule>
 </rules>
