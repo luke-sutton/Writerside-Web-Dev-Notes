@@ -28,6 +28,8 @@
         <toc-element topic="Vue-Router.md"/>
         <toc-element topic="Lists-Teleport-Template-Refs-nextTick.md"/>
         <toc-element topic="Child-Components-Props-Emits.md"/>
+        <toc-element topic="Composables.md"/>
+        <toc-element topic="State-Management-With-Pinia.md"/>
         <toc-element topic="Modal-Examples.md"/>
         <toc-element topic="How-to-setup-a-Vue-and-Net-app.md"/>
     </toc-element>
