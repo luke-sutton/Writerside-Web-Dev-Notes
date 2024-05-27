@@ -221,6 +221,9 @@ const handleButtonClick = () => {
 
 ### modelValue
 
+Note:
+: As of Vue 3.4 it is recommended to use defineModel instead of modelValue
+
 modelValue is an alternative way of updating values in a parent component from a child component by
 giving them direct access to the appropriate data.
 
@@ -283,6 +286,94 @@ for the property -
       <button @click="emit('update:modelValue', false)">Hide modal</button>
     </div>
   </teleport>
+</template>
+```
+
+By targeting a particular prop and event you can create multiple v-model bindings within a component -
+
+Child component -
+
+```HTML
+<UserName
+  v-model:first-name="first"
+  v-model:last-name="last"
+/>
+```
+
+Parent component -
+
+```HTML
+<script setup>
+defineProps({
+  firstName: String,
+  lastName: String
+})
+
+defineEmits(['update:firstName', 'update:lastName'])
+</script>
+
+<template>
+  <input
+    type="text"
+    :value="firstName"
+    @input="$emit('update:firstName', $event.target.value)"
+  />
+  <input
+    type="text"
+    :value="lastName"
+    @input="$emit('update:lastName', $event.target.value)"
+  />
+</template>
+```
+
+### defineModel
+
+As of vue 3.4 this is the recomended way to implemnemnt  2way binding -
+
+Child component -
+
+```HTML
+<Child v-model="countModel" />
+```
+
+Parent component -
+
+```HTML
+<script setup>
+const model = defineModel()
+
+function update() {
+  model.value++
+}
+</script>
+
+<template>
+  <div>Parent bound v-model is: {{ model }}</div>
+</template>
+```
+
+ANd this is how you would apply it to multiple props -
+
+Child component -
+
+```HTML
+<UserName
+  v-model:first-name="first"
+  v-model:last-name="last"
+/>
+```
+
+Parent component -
+
+```HTML
+<script setup>
+const firstName = defineModel('firstName')
+const lastName = defineModel('lastName')
+</script>
+
+<template>
+  <input type="text" v-model="firstName" />
+  <input type="text" v-model="lastName" />
 </template>
 ```
 

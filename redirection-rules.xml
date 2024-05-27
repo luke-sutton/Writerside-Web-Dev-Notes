@@ -82,4 +82,12 @@
         <description><![CDATA[Created after removal of "<Simple-Modal-Example.md>" from LamdaLuke]]></description>
         <accepts>Simple-Modal-Example.html</accepts>
     </rule>
+    <rule id="10318a14">
+        <description>Created after removal of "Basics" from LamdaLuke</description>
+        <accepts>Basics.html</accepts>
+    </rule>
+    <rule id="4848de">
+        <description><![CDATA[Created after removal of "Inserting & Searching Data" from LamdaLuke]]></description>
+        <accepts>Inserting-Searching-Data.html</accepts>
+    </rule>
 </rules>
