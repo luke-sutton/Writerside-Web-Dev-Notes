@@ -2,19 +2,19 @@
 
 ### Creating & Connecting to a Database
 
-To create a new database use CREATE DATABASE followed by the name you use to call the database -
+To create a new database use CREATE DATABASE followed by the name you wish to call the database -
 
 ```SQL
 CREATE DATABASE DotNetCourseDatabase
 ```
-
-This informs the computer that everything run after this statement is a new and separate query.
 
 To connect to the database you use the use statement followed by the name of the database you wish to use -
 
 ```SQL
 USE DotNetCourseDatabase
 ```
+
+### Creating a Schema
 
 To create a new schema use the create schema statement followed by the name for the schema -
 
@@ -24,7 +24,7 @@ CREATE SCHEMA TutorialAppSchema
 
 ### Creating a Table
 
-To create a new table use the create table statement followed by the name for the table -
+To create a new table use the create table statement followed by the schema and name for the table -
 
 ```SQL
 CREATE TABLE  TutorialAppSchema.Computer
@@ -64,7 +64,8 @@ VideoCard NVARCHAR(50)
 
 A script is a set of statements that are executed in sequence.
 
-It is considered best practice to use the go statement between unrelated statements when running a script.
+It is considered best practice to use the go statement between unrelated statements when running a script.   
+This informs the computer that everything run after this statement is a new and separate query.
 
 For example the script for the work we have completed so far would look like this -
 
