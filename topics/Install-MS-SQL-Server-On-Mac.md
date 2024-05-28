@@ -31,7 +31,7 @@ docker start sql_connect
 
 The container can also be stopped and started within the Docker GUI.
 
-### Connecting to the Database
+### Connecting to the Server
 
 In your database management system (such as Azure Data Studio or DataGrip etc.) enter the following parameters -
 

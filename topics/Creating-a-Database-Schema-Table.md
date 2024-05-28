@@ -33,7 +33,7 @@ CREATE TABLE  TutorialAppSchema.Computer
 )
 ```
 
-We will now add out first entry into the table -
+Next add the first entry into the table -
 
 ```SQL
 CREATE TABLE  TutorialAppSchema.Computer
@@ -58,6 +58,23 @@ HasLTE BIT,
 ReleaseDate DATETIME,
 Price DECIMAL(18, 4),
 VideoCard NVARCHAR(50)
+```
+
+So the full instruction will be as follows -
+
+```SQL
+CREATE TABLE  TutorialAppSchema.Computer
+(
+    computerId INT IDENTITY(1,1) PRIMARY KEY,
+    Motherboard NVARCHAR(50),
+    CPUCores INT,
+    HasWifi BIT,
+    HasLTE BIT,
+    ReleaseDate DATETIME,
+    Price DECIMAL(18, 4),
+    VideoCard NVARCHAR(50)
+)
+GO
 ```
 
 ### Running Statements as a Script

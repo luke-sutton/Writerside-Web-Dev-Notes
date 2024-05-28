@@ -1,4 +1,4 @@
-# LamdaLuke.com
+# LambdaLuke.com
 
 ### Overview
 I believe that explaining topics truly helps to understand them and to cement the concepts learned.

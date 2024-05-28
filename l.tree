@@ -3,7 +3,7 @@
         SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
 
 <instance-profile id="l"
-                 name="LamdaLuke"
+                 name="LambdaLuke"
                  start-page="Overview.md">
 
     <toc-element topic="Overview.md">
@@ -78,6 +78,7 @@
         <toc-element topic="Install-MS-SQL-Server-On-Mac.md"/>
         <toc-element topic="Creating-a-Database-Schema-Table.md"/>
         <toc-element topic="Insert-Update-Delete-and-Search.md"/>
+        <toc-element topic="Temp-Intermediary.md"/>
     </toc-element>
     <toc-element topic="Git.md"/>
     <toc-element topic="Design-Patterns.md">
