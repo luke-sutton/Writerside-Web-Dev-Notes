@@ -90,4 +90,12 @@
         <description><![CDATA[Created after removal of "Inserting & Searching Data" from LamdaLuke]]></description>
         <accepts>Inserting-Searching-Data.html</accepts>
     </rule>
+    <rule id="5103da0a">
+        <description>Created after removal of "Insert, Update, Delete and Search" from LambdaLuke</description>
+        <accepts>Insert-Update-Delete-and-Search.html</accepts>
+    </rule>
+    <rule id="745d535d">
+        <description>Created after removal of "Alias, Join and Where Exists" from LambdaLuke</description>
+        <accepts>Temp-Intermediary.html</accepts>
+    </rule>
 </rules>

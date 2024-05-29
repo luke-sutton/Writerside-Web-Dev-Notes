@@ -70,6 +70,9 @@
         <toc-element topic="Tuples.md"/>
     </toc-element>
     <toc-element topic="NET.md">
+        <toc-element topic="Net-8-Web-API.md">
+            <toc-element topic="Program-cs.md"/>
+        </toc-element>
         <toc-element topic="NET-Minimal-Todo-App-API.md">
             <toc-element topic="CORS-Allow-Requests-From-Your-Local-Client-App.md"/>
         </toc-element>
@@ -77,8 +80,8 @@
     <toc-element topic="SQL.md">
         <toc-element topic="Install-MS-SQL-Server-On-Mac.md"/>
         <toc-element topic="Creating-a-Database-Schema-Table.md"/>
-        <toc-element topic="Insert-Update-Delete-and-Search.md"/>
-        <toc-element topic="Temp-Intermediary.md"/>
+        <toc-element topic="Insert-Update-and-Delete.md"/>
+        <toc-element topic="Retrieving-Data.md"/>
     </toc-element>
     <toc-element topic="Git.md"/>
     <toc-element topic="Design-Patterns.md">

@@ -33,31 +33,28 @@ CREATE TABLE  TutorialAppSchema.Computer
 )
 ```
 
-Next add the first entry into the table -
+Next add a column whose purpose is for indexing the data -
 
 ```SQL
-CREATE TABLE  TutorialAppSchema.Computer
-(
-    computerId INT IDENTITY(1,1) PRIMARY KEY
-)
+computerId INT IDENTITY(1,1) PRIMARY KEY
 ```
 
-In the above example computerId is the name given to the tableId, INT is the type of data. The identity statement
-means that this is not an entry that we will be adding data to, Its purpose is for sorting the other entries. The first
-number in the brackets is the starting value (this is referred to as the seed), and the second value is how much it
-should increase by each time an entry is added to the database (this is referred to as the increment).
-The use of primary key at the end ensures that the id's created are always unique.
+First enter the columns name followed by the data type e.g. int.   
+Next add the identity statement which specifies that this column is to be used for sorting. Pass in 2 numbers,
+the first is the starting number and the second is how much the number should increment by for each entry.   
+Finally, add the primary key statement, this ensures that each entry created will be unique.
 
-Next add entries to the database including the data types -
+Next add the columns required to the database including the data types, it is also considered best practice to state
+if the data should be nullable by adding either the statement null or not null -
 
 ```SQL
-Motherboard NVARCHAR(50),
-CPUCores INT,
-HasWifi BIT,
-HasLTE BIT,
-ReleaseDate DATETIME,
-Price DECIMAL(18, 4),
-VideoCard NVARCHAR(50)
+Motherboard NVARCHAR(50) NULL,
+CPUCores INT NULL,
+HasWifi BIT NULL,
+HasLTE BIT NULL,
+ReleaseDate DATETIME NULL,
+Price DECIMAL(18, 4) NULL,
+VideoCard NVARCHAR(50) NULL
 ```
 
 So the full instruction will be as follows -
@@ -66,15 +63,14 @@ So the full instruction will be as follows -
 CREATE TABLE  TutorialAppSchema.Computer
 (
     computerId INT IDENTITY(1,1) PRIMARY KEY,
-    Motherboard NVARCHAR(50),
-    CPUCores INT,
-    HasWifi BIT,
-    HasLTE BIT,
-    ReleaseDate DATETIME,
-    Price DECIMAL(18, 4),
-    VideoCard NVARCHAR(50)
+    Motherboard NVARCHAR(50) NULL,
+    CPUCores INT NULL,
+    HasWifi BIT NULL,
+    HasLTE BIT NULL,
+    ReleaseDate DATETIME NULL,
+    Price DECIMAL(18, 4) NULL,
+    VideoCard NVARCHAR(50) NULL
 )
-GO
 ```
 
 ### Running Statements as a Script
@@ -99,12 +95,12 @@ GO
 CREATE TABLE  TutorialAppSchema.Computer
 (
     computerId INT IDENTITY(1,1) PRIMARY KEY,
-    Motherboard NVARCHAR(50),
-    CPUCores INT,
-    HasWifi BIT,
-    HasLTE BIT,
-    ReleaseDate DATETIME,
-    Price DECIMAL(18, 4),
-    VideoCard NVARCHAR(50)
+    Motherboard NVARCHAR(50) NULL,
+    CPUCores INT NULL,
+    HasWifi BIT NULL,
+    HasLTE BIT NULL,
+    ReleaseDate DATETIME NULL,
+    Price DECIMAL(18, 4) NULL,
+    VideoCard NVARCHAR(50) NULL
 )
 ```
