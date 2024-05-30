@@ -98,4 +98,17 @@
         <description>Created after removal of "Alias, Join and Where Exists" from LambdaLuke</description>
         <accepts>Temp-Intermediary.html</accepts>
     </rule>
+    <rule id="71ef979c">
+        <description>Created after removal of "Program.cs" from LambdaLuke</description>
+        <accepts>Program-cs.html</accepts>
+    </rule>
+    <rule id="7479e4cd">
+        <description>Created after removal of "CORS - Allow Requests From Your Local Client App" from LambdaLuke
+        </description>
+        <accepts>CORS-Allow-Requests-From-Your-Local-Client-App.html</accepts>
+    </rule>
+    <rule id="36d4770">
+        <description>Created after removal of ".NET Todo App Minimal API" from LambdaLuke</description>
+        <accepts>NET-Minimal-Todo-App-API.html</accepts>
+    </rule>
 </rules>

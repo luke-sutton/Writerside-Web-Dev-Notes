@@ -71,10 +71,8 @@
     </toc-element>
     <toc-element topic="NET.md">
         <toc-element topic="Net-8-Web-API.md">
-            <toc-element topic="Program-cs.md"/>
-        </toc-element>
-        <toc-element topic="NET-Minimal-Todo-App-API.md">
-            <toc-element topic="CORS-Allow-Requests-From-Your-Local-Client-App.md"/>
+            <toc-element topic="Initial-Default-Application.md"/>
+            <toc-element topic="Add-a-Controller.md"/>
         </toc-element>
     </toc-element>
     <toc-element topic="SQL.md">

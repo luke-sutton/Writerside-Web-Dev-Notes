@@ -1,7 +1,8 @@
-# Program.cs
+# Initial Default Application
 
-After creating a new Web API application using .net 8 a Program.cs file will be created which holds
-the main part of the application -
+After creating a new Web API application using .net 8 a default minimal API application will
+be created. The Program.cs file within this application contains almost the entire application
+(aside from config files like launch settings) -
 
 ```C#
 var builder = WebApplication.CreateBuilder(args);
@@ -77,5 +78,12 @@ The code after this line is the endpoint created in the default application (the
 endpoint).
 
 This is a new structure introduced in .net 8.   
-This can be usefull for testing or creating very small API's quickly by keeping all the code in this file, but 
+This can be usefull for testing or creating very small API's quickly by keeping all the code in one file, but
 for most API's it makes sense to move these to another location and use the controller infrastructure.
+
+After running the application you can see it working by navigating to the appropriate localhost location,
+then adding the included endpoint.   
+E.g. http://localhost:5143/weatherforecast   
+Or you can add swagger instead of the endpoint to get a GUI for monitoring the API.   
+(only works in development)   
+E.g. http://localhost:5143/swagger
