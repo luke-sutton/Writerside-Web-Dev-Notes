@@ -10,11 +10,13 @@ Then the AddControllers method should be called on the builder.Services collecti
 builder.Services.AddControllers();
 ```
 
-Then add the end of the application just before run is called, MapControllers should be called on the app -
+Then at the end of the application just before run is called, MapControllers should be called on the app -
 
 ```C#
 app.MapControllers();
 ```
+
+This will allow the app to correctly map the incoming requests to the relevant endpoints in our controllers.
 
 The completed program.cs file should look like this (with https redirect and CORS policies implemented) -
 

@@ -1,6 +1,6 @@
 # Add a Controller
 
-Create a folder called Controllers, then add an appropriately named file for your controller that 
+Create a folder called Controllers, then add an appropriately named file for your controller, that 
 ends with Controller (e.g. UserController.cs)
 
 Add the appropriate namespace and class name to the file (if not auto created) -
