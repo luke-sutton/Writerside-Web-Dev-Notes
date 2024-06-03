@@ -111,4 +111,25 @@
         <description>Created after removal of ".NET Todo App Minimal API" from LambdaLuke</description>
         <accepts>NET-Minimal-Todo-App-API.html</accepts>
     </rule>
+    <rule id="5f9b41c1">
+        <description>Created after removal of "Add a Controller" from LambdaLuke</description>
+        <accepts>Add-a-Controller.html</accepts>
+    </rule>
+    <rule id="1a382af6">
+        <description>Created after removal of "Program.cs" from LambdaLuke</description>
+        <accepts>Program-cs.html</accepts>
+    </rule>
+    <rule id="29724101">
+        <description>Created after removal of "Initial Default Application" from LambdaLuke</description>
+        <accepts>Initial-Default-Application.html</accepts>
+    </rule>
+    <rule id="1f8c8b4c">
+        <description>Created after removal of "Convert Initial App To Controller Structure" from LambdaLuke
+        </description>
+        <accepts>Convert-Initial-App-To-Controller-Structure.html</accepts>
+    </rule>
+    <rule id="31b0f370">
+        <description>Created after removal of "Add a Custom Controller" from LambdaLuke</description>
+        <accepts>Add-a-Custom-Controller.html</accepts>
+    </rule>
 </rules>
