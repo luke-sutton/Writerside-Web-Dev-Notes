@@ -1,7 +1,7 @@
 # Add a Controller
 
-Create a folder called Controllers, then add an appropriately named file for your controller, that 
-ends with Controller (e.g. UserController.cs)
+Create a folder called Controllers, then add an appropriately named file that should also end with 
+Controller (e.g. UserController.cs)
 
 Add the appropriate namespace and class name to the file (if not auto created) -
 
@@ -14,7 +14,7 @@ public class UserController
 }
 ```
 
-Next add the APIController attribute above the class -
+Next add the APIController attribute above the class (this will add the appropriate namespace) -
 
 ```C#
 using Microsoft.AspNetCore.Mvc;

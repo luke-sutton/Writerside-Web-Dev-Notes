@@ -8,7 +8,7 @@ type.
 
 ```C#
 /*Declare a delegate that can encapsulate a method that takes a
- string as anargument and returns void*/
+ string as an argument and returns void*/
 public delegate void Callback(string message);
 
 // Create a method for a delegate -

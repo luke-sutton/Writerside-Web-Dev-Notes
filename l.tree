@@ -75,6 +75,7 @@
             <toc-element topic="Https-Redirect-and-CORS.md"/>
             <toc-element topic="API-With-Controllers.md"/>
             <toc-element topic="Add-a-Controller.md"/>
+            <toc-element topic="Connect-to-a-Database.md"/>
         </toc-element>
     </toc-element>
     <toc-element topic="SQL.md">
