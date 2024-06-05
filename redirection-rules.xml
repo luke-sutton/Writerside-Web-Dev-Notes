@@ -132,4 +132,12 @@
         <description>Created after removal of "Add a Custom Controller" from LambdaLuke</description>
         <accepts>Add-a-Custom-Controller.html</accepts>
     </rule>
+    <rule id="6116eca9">
+        <description>Created after removal of "Connect to a Database" from LambdaLuke</description>
+        <accepts>Connect-to-a-Database.html</accepts>
+    </rule>
+    <rule id="212189f2">
+        <description>Created after removal of "Connect Model and Controller" from LambdaLuke</description>
+        <accepts>Connect-Model-and-Controller.html</accepts>
+    </rule>
 </rules>

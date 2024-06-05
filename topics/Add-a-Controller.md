@@ -67,95 +67,22 @@ requests sent to <app_root>/UserController.
 
 That is the main blueprint for a controller created, all that is left is to add the required endpoints.
 
-### Simple Example
+### Test the Controller
 
-Create a public method called GetUsers that has a return type of string array, then add the HttpGet attribute
-with an endpoint of GetUsers -
+Next we will add a simple get request endpoint to check that everything is working.
+
+Create a public method called TestEndpoint that has a return type of string, then add the HttpGet attribute
+with an endpoint of TestEndpoint.   
+Then within this method create a string variable called response and assign it the value of "Test passed", then
+return the response variable -
 
 ```C#
-[HttpGet("GetUsers")]
-public string[] GetUsers(string testValue)
+[HttpGet("TestEndpoint")]
+public string TestEndpoint()
 {
-
+    string response = "Test passed";
+    return response;
 }
 ```
 
-Within the method create a new string array called responseArray and return it -
-
-```C#
-string[] responseArray = new string[]
-{
-    "test1",
-    "test2"
-};
-return responseArray;
-```
-
-You can now run the application and the new endpoint should successfully return the array of strings.
-
-### Simple Example - Add a Parameter
-
-Next we will add a parameter to the endpoint, add a string called testValue as a parameter -
-
-```C#
-[HttpGet("test")]
-public string[] Test(string testValue)
-{
-    string[] responseArray = new string[]
-    {
-        "test1",
-        "test2"
-    };
-    return responseArray;
-}
-```
-
-Make the parameter explicit by adding it to the route in the HttpGet attribute -
-
-```C#
-[HttpGet("test/{testValue}")]
-```
-
-Parameters should be made explicit as it makes it much more obvious to the user as to what is required.
-
-Using the parameter -
-
-add the argument to the string array being returned -
-
-```C#
-string[] responseArray = new string[]
-{
-    "test1",
-    "test2",
-    testValue
-};
-return responseArray;
-```
-
-After running the app and calling the endpoint and providing a string, the result should be the array of strings
-including the one you provided.
-
-Completed simple example -
-
-```C#
-using Microsoft.AspNetCore.Mvc;
-
-namespace DotNetAPI.Controllers;
-
-[ApiController]
-[Route("[controller]")]
-public class UserController : ControllerBase
-{
-    [HttpGet("GetUsers")]
-    public string[] GetUsers(string testValue)
-    {
-        string[] responseArray = new string[]
-        {
-            "test1",
-            "test2",
-            testValue
-        };
-        return responseArray;
-    }
-}
-```
+You can now run the application and the new endpoint should successfully return the string.

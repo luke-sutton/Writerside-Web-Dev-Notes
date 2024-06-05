@@ -1,6 +1,6 @@
-# Connect to a Database
+# Connect to a Database - Dapper
 
-### Database Connection
+### Add a Connection String
 
 Open the appsettings.json file -
 
@@ -34,7 +34,7 @@ Then enter the details as the value -
 }
 ```
 
-### Add Database Connection Tools / Libraries
+### Add Dapper and Other Libraries
 
 Install the following packages -
 
@@ -42,7 +42,7 @@ Install the following packages -
 * AutoMapper
 * Microsoft.Data.SqlClient
 
-### Connect to the Database
+### Create a DAL (Data Access Layer)
 
 Next we will create a Data Access Layer (DAL)
 
@@ -169,29 +169,5 @@ namespace DotNetAPI.Data
             return dbConnection.Execute(sql);
         }
     }
-}
-```
-
-### Test the Connection
-
-Within your controller, add a property of type DataContextDapper, then add a constructor and assign it
-to a new DataContextDapper object and pass in config -
-
-```C#
-private DataContextDapper _dapper;
-    
-public UserController(IConfiguration config)
-{
-    _dapper = new DataContextDapper(config);
-}
-```
-
-Then create a new endpoint to test the connection -
-
-```C#
-[HttpGet("TestConnection")]
-public DateTime TestConnection()
-{
-    return _dapper.LoadDataSingle<DateTime>("SELECT GETDATE()");
 }
 ```

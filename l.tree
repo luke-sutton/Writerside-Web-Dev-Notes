@@ -14,6 +14,7 @@
     <toc-element topic="CSS.md">
         <toc-element topic="SPA-Boilerplate.md"/>
         <toc-element topic="CSS-Common-Breakpoints.md"/>
+        <toc-element topic="Overlay.md"/>
     </toc-element>
     <toc-element topic="JavaScript.md">
         <toc-element topic="Nullish-Coalesing-Operator.md"/>
@@ -74,8 +75,11 @@
             <toc-element topic="Minimal-API.md"/>
             <toc-element topic="Https-Redirect-and-CORS.md"/>
             <toc-element topic="API-With-Controllers.md"/>
+            <toc-element topic="Connect-to-a-Database-Dapper.md"/>
+            <toc-element topic="Add-a-Modal.md"/>
             <toc-element topic="Add-a-Controller.md"/>
-            <toc-element topic="Connect-to-a-Database.md"/>
+            <toc-element topic="Connect-the-DAL-and-Controller.md"/>
+            <toc-element topic="Add-Endpoints.md"/>
         </toc-element>
     </toc-element>
     <toc-element topic="SQL.md">
