@@ -1,4 +1,6 @@
-# Add a Modal
+# Models &amp; DTOs
+
+### Add a Modal
 
 Create a folder titled Modals within the project and then add a new file with the name of your database table.
 
@@ -45,3 +47,16 @@ public User()
     }
 }
 ```
+
+### DTO - Data Transfer Objects
+
+Data Transfer Objects are just models created for the purpose of transferring data.
+
+For example, you may have a model which is a direct representation of a table in your database,
+but this table features a primary key column that is auto created, and so we do not want to supply one when
+using a put request to add a new entry. And so a direct copy of that model is made but with the primary key
+column removed which can then be used in the put request.
+
+DTOs are typically placed in a folder titled Dtos, then you can simply copy the relevant model file into here,
+then just rename the file and the class to add Dto and the reason for it to the end (e.g. user could become
+userToAddDto), and just remove the unneeded property/s.
