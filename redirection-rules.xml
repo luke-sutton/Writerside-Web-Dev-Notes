@@ -148,4 +148,30 @@
         <description>Created after removal of "Add a Modal" from LambdaLuke</description>
         <accepts>Add-a-Modal.html</accepts>
     </rule>
+    <rule id="6a66f8e">
+        <description>
+            <![CDATA[Created after removal of "<Connect-to-a-Database-Dapper.md>" from LambdaLuke]]></description>
+        <accepts>Connect-to-a-Database-Dapper.html</accepts>
+    </rule>
+    <rule id="ae490b5">
+        <description>
+            <![CDATA[Created after removal of "<Connect-to-a-Database-Entity-Framework.md>" from LambdaLuke]]></description>
+        <accepts>Connect-to-a-Database-Entity-Framework.html</accepts>
+    </rule>
+    <rule id="4525b650">
+        <description>Created after removal of "Minimal APi" from LambdaLuke</description>
+        <accepts>Minimal-API.html</accepts>
+    </rule>
+    <rule id="666078d9">
+        <description>Created after removal of "test" from LambdaLuke</description>
+        <accepts>test.html</accepts>
+    </rule>
+    <rule id="4ae4a2c5">
+        <description>Created after removal of ".Net 8 Web API" from LambdaLuke</description>
+        <accepts>Net-8-Web-API.html</accepts>
+    </rule>
+    <rule id="353fb18d">
+        <description>Created after removal of "test" from LambdaLuke</description>
+        <accepts>test.html</accepts>
+    </rule>
 </rules>

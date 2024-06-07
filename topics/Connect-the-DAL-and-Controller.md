@@ -2,8 +2,8 @@
 
 ### Inject the DAL into the controller
 
-Within your controller, add a property of type DataContextDapper, then add a constructor and assign it
-to a new DataContextDapper object and pass in config -
+Within your controller, add a property of the type of whatever your DAL is called (e.g. DataContextDapper or
+DataContextEF), then add a constructor and assign it to a new DAL object and pass in config -
 
 ```C#
 private DataContextDapper _dapper;
@@ -11,6 +11,17 @@ private DataContextDapper _dapper;
 public UserController(IConfiguration config)
 {
     _dapper = new DataContextDapper(config);
+}
+```
+
+Example using Entity Framework -
+
+```C#
+private DataContextEF _entityFramework;
+
+public UserEFController(IConfiguration config)
+{
+    _entityFramework = new DataContextEF(config);
 }
 ```
 

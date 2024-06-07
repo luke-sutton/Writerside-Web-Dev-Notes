@@ -27,7 +27,7 @@ else
 
 ### CORS
 
-CORS stands for Cross Origin Resource Sharing, this is a mechanism implemented in web browsers to 
+CORS stands for Cross Origin Resource Sharing, this is a mechanism implemented in web browsers to
 mitigate the security risks involved in making HTTP requests to different domains (known as cross-domain requests).
 
 Basically, if a website receives a request from a different domain in sees it as a security risk, the request
