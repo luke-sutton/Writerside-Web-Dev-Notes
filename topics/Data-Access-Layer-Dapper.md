@@ -5,7 +5,6 @@
 Install the following packages -
 
 * Dapper
-* AutoMapper
 * Microsoft.Data.SqlClient
 
 ### Create a DAL (Data Access Layer)

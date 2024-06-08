@@ -1,4 +1,4 @@
-# API With Controllers
+# Update Program.cs
 
 To convert the minimal APIs program.cs file to work with controllers the following changes should be made -
 

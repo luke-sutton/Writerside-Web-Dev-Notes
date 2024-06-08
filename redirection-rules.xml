@@ -174,4 +174,16 @@
         <description>Created after removal of "test" from LambdaLuke</description>
         <accepts>test.html</accepts>
     </rule>
+    <rule id="758db9b8">
+        <description>Created after removal of "test" from LambdaLuke</description>
+        <accepts>test.html</accepts>
+    </rule>
+    <rule id="5f8a7e5e">
+        <description><![CDATA[Created after removal of "<API-With-Controllers.md>" from LambdaLuke]]></description>
+        <accepts>API-With-Controllers.html</accepts>
+    </rule>
+    <rule id="5d9cc3f3">
+        <description>Created after removal of "How to setup a Vue and .Net app" from LambdaLuke</description>
+        <accepts>How-to-setup-a-Vue-and-Net-app.html</accepts>
+    </rule>
 </rules>

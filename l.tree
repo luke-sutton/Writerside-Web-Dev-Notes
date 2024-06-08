@@ -17,6 +17,7 @@
         <toc-element topic="Overlay.md"/>
     </toc-element>
     <toc-element topic="JavaScript.md">
+        <toc-element topic="Beyond-console-log.md"/>
         <toc-element topic="Nullish-Coalesing-Operator.md"/>
     </toc-element>
     <toc-element topic="TypeScript.md"/>
@@ -32,7 +33,6 @@
         <toc-element topic="Composables.md"/>
         <toc-element topic="State-Management-With-Pinia.md"/>
         <toc-element topic="Modal-Examples.md"/>
-        <toc-element topic="How-to-setup-a-Vue-and-Net-app.md"/>
     </toc-element>
     <toc-element topic="C.md">
         <toc-element topic="Type-Conversions.md"/>
@@ -71,19 +71,25 @@
         <toc-element topic="Tuples.md"/>
     </toc-element>
     <toc-element topic="NET.md">
-        <toc-element topic="Minimal-API.md">
-        </toc-element>
-        <toc-element topic="Controller-API.md">
+        <toc-element topic="API.md">
             <toc-element topic="Https-Redirect-and-CORS.md"/>
             <toc-element topic="Add-a-Connection-String.md"/>
-            <toc-element topic="API-With-Controllers.md"/>
-            <toc-element topic="Add-Endpoints-Entity-Framework.md"/>
-            <toc-element topic="Add-Endpoints.md"/>
-            <toc-element topic="Connect-the-DAL-and-Controller.md"/>
-            <toc-element topic="Add-a-Controller.md"/>
-            <toc-element topic="Models-DTOs.md"/>
-            <toc-element topic="Data-Access-Layer-Entity-Framework.md"/>
-            <toc-element topic="Data-Access-Layer-Dapper.md"/>
+            <toc-element topic="Minimal-API.md">
+                <toc-element topic="Create-a-Clean-Project.md"/>
+                <toc-element topic="First-Endpoint.md"/>
+                <toc-element topic="Add-a-Modal-Data-Store.md"/>
+            </toc-element>
+            <toc-element topic="Controller-API.md">
+                <toc-element topic="Update-Program-cs.md"/>
+                <toc-element topic="Add-a-Controller.md"/>
+                <toc-element topic="Models-DTOs.md"/>
+                <toc-element topic="Data-Access-Layer-Dapper.md"/>
+                <toc-element topic="Data-Access-Layer-Entity-Framework.md"/>
+                <toc-element topic="Connect-the-DAL-and-Controller.md"/>
+                <toc-element topic="Add-Endpoints.md"/>
+                <toc-element topic="Add-Endpoints-Entity-Framework.md"/>
+                <toc-element topic="AutoMapper.md"/>
+            </toc-element>
         </toc-element>
     </toc-element>
     <toc-element topic="SQL.md">
