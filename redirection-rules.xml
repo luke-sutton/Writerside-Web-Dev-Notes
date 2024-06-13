@@ -186,4 +186,16 @@
         <description>Created after removal of "How to setup a Vue and .Net app" from LambdaLuke</description>
         <accepts>How-to-setup-a-Vue-and-Net-app.html</accepts>
     </rule>
+    <rule id="4dcfa0f">
+        <description>Created after removal of "Markdown" from LambdaLuke</description>
+        <accepts>Markdown.html</accepts>
+    </rule>
+    <rule id="4cab0c99">
+        <description>Created after removal of "Empty MD Topic" from LambdaLuke</description>
+        <accepts>Empty-MD-Topic.html</accepts>
+    </rule>
+    <rule id="3cfcab62">
+        <description>Created after removal of "step 1" from LambdaLuke</description>
+        <accepts>step-1.html</accepts>
+    </rule>
 </rules>

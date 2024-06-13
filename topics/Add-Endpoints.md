@@ -1,108 +1,81 @@
-# Add Endpoints - Dapper
+# Add Endpoints
 
-### Get
+### Move Endpoints to a Separate File
 
-```C#
-[HttpGet("GetUsers")]
-public IEnumerable<User> GetUsers()
-{
-    string sql = @"
-        SELECT Users.UserId,
-               Users.FirstName,
-               Users.LastName,
-               Users.Email,
-               Users.Gender,
-               Users.Active
-        FROM TutorialAppSchema.Users";
-    IEnumerable<User> users = _dapper.LoadData<User>(sql);
-    return users;
-}
-```
+Add a new folder called Endpoints then add a new class file with an appropriate name for your endpoints (e.g
+AddressBookEndpoints)
 
-### Get Single
+Make the class static then add a static method with the name Configure + your class name (e.g.
+ConfigureAddressBookEndpoints), and pass in WebApplication -
 
 ```C#
-[HttpGet("GetSingleUser/{userId}")]
-public User GetSingleUser(int userId)
-{
-    string sql = $@"
-        SELECT Users.UserId,
-               Users.FirstName,
-               Users.LastName,
-               Users.Email,
-               Users.Gender,
-               Users.Active
-        FROM TutorialAppSchema.Users
-        WHERE UserId = {userId}";
-    User users = _dapper.LoadDataSingle<User>(sql);
-    return users;
-}
-```
+namespace MinimalAPI_test.Endpoints;
 
-### Put
-
-```C#
-[HttpPut("EditUser")]
-public IActionResult EditUser(User user)
+public static class AddressBookEndpoints
 {
-    string sql = $@"
-        UPDATE TutorialAppSchema.Users
-            SET FirstName = '{user.FirstName}',
-                LastName  = '{user.LastName}',
-                Email     = '{user.Email}',
-                Gender    = '{user.Gender}',
-                Active    = '{user.Active}'
-            WHERE UserId = {user.UserId}";
-    if (_dapper.ExecuteSql(sql))
+    public static void ConfigureAddressBookEndpoints(this WebApplication app)
     {
-        return Ok();
+    }
+}
+```
+
+Then in the Program.cs we need to invoke the new class by calling it on the app method -
+
+```C#
+app.ConfigureAddressBookEndpoints();
+```
+
+This is usually placed just before app.UseHttpsRedirection()
+
+### Add an Endpoint
+
+To keep the code as clean as possible we will separate the logic from the endpoint by moving it to a separate method.
+
+In your endpoints class file, add an endpoint to the method we previously created -
+
+```C#
+namespace MinimalAPI_test.Endpoints;
+
+public static class AddressBookEndpoints
+{
+    public static void ConfigureAddressBookEndpoints(this WebApplication app)
+    {
+        app.MapGet("/api/addressbook", GetAllAddressBook);
+    }
+}
+```
+
+In the above example we are creating a get endpoint by calling MapGet on the app object, and we are passing in the url
+for the endpoint, and then the name of the method we would like to call at that endpoint. This method is where we 
+will hold our logic, but we have not created this yet, so select the method name and select create method, and the 
+method will be created for us -
+
+```C#
+namespace MinimalAPI_test.Endpoints;
+
+public static class AddressBookEndpoints
+{
+    public static void ConfigureAddressBookEndpoints(this WebApplication app)
+    {
+        app.MapGet("/api/addressbook", GetAllAddressBook);
     }
 
-    throw new Exception("Failed to update user");
+    private static Task GetAllAddressBook(HttpContext context)
+    {
+        throw new NotImplementedException();
+    }
 }
 ```
 
-### Post
+Now we can update this function for our needs. Start by making the method async, then update the return type, and then
+pass in our repository. Finally, add the required logic -
 
 ```C#
-[HttpPost("AddUser")]
-public IActionResult AddUser(UserToAddDto user)
+private static async Task<ICollection<AddressBook>> GetAllAddressBook(IAddressBookRepository _repo)
 {
-    string sql = $@"INSERT INTO TutorialAppSchema.Users(
-        FirstName,
-        LastName,
-        Email,
-        Gender,
-        Active
-    ) VALUES (
-         '{user.FirstName}',
-         '{user.LastName}',
-         '{user.Email}',
-         '{user.Gender}',
-         '{user.Active}'
-    )";
-    if (_dapper.ExecuteSql(sql))
-    {
-        return Ok();
-    }
-
-    throw new Exception("Failed to add user");
+    ICollection<AddressBook> addressBookEntities = await _repo.GetAllAsync();
+    return addressBookEntities;
 }
 ```
 
-### Delete
-
-```C#
-[HttpDelete("DeleteUser/{userId}")]
-public IActionResult DeleteUser(int userId)
-{
-    string sql = $"DELETE FROM TutorialAppSchema.Users WHERE UserId = {userId}";
-
-    if (_dapper.ExecuteSql(sql))
-    {
-        return Ok();
-    }
-
-    throw new Exception("Failed to delete user");
-}
-```
+We should now be able to run the application and successfully call the endpoint.
