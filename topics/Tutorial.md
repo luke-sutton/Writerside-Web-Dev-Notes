@@ -1,3 +1,0 @@
-# Tutorial - Entitiy Framework
-
-Start typing here...

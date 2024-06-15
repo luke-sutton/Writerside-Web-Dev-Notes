@@ -74,19 +74,11 @@
         <toc-element topic="API.md">
             <toc-element topic="Minimal-API.md">
                 <toc-element topic="Create-a-Clean-Project.md"/>
-                <toc-element topic="Entity-Framework.md">
-                    <toc-element topic="Create-a-Database-Using-EF.md"/>
-                </toc-element>
+                <toc-element topic="Modal-DAL-Database-Entity-Framework.md"/>
                 <toc-element topic="Create-a-Repository.md"/>
                 <toc-element topic="Add-Endpoints.md"/>
-                <toc-element topic="First-Endpoint.md"/>
-                <toc-element topic="Tutorial.md">
-                    <toc-element topic="Add-a-Modal-Data-Store.md"/>
-                    <toc-element topic="Tutorial-Add-Endpoints.md"/>
-                    <toc-element topic="Tutorial-Add-Put-and-Delete.md"/>
-                    <toc-element topic="Tutorial-Database-and-Repository.md"/>
-                    <toc-element topic="Tutorial-Move-Endpoints-Into-Seperate-Class.md"/>
-                </toc-element>
+                <toc-element topic="Create-a-Standard-API-Response.md"/>
+                <toc-element topic="Authentication-Authorization.md"/>
             </toc-element>
             <toc-element topic="Controller-API.md">
                 <toc-element topic="Update-Program-cs.md"/>

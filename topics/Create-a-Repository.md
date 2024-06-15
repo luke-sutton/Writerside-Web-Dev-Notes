@@ -1,8 +1,8 @@
 # Create a Repository
 
 Note:
-: A database repository, also known as a repository in the context of software development, refers to an abstraction
-layer between the data in a program, typically stored in a database, and the business logic of the program.
+: A repository, also known as a database repository, refers to an abstraction layer between the data in a program,
+typically stored in a database, and the business logic of the program.
 
 : The repository layer handles all the work that involves data manipulation. This includes all CRUD operations (Create,
 Read, Update, Delete) and other data-related tasks such as querying, sorting, filtering, and transforming of data.

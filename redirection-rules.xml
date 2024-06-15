@@ -198,4 +198,45 @@
         <description>Created after removal of "step 1" from LambdaLuke</description>
         <accepts>step-1.html</accepts>
     </rule>
+    <rule id="1b70e01c">
+        <description>Created after removal of "First Endpoint" from LambdaLuke</description>
+        <accepts>First-Endpoint.html</accepts>
+    </rule>
+    <rule id="2c1bd30">
+        <description><![CDATA[Created after removal of "Model, DAL & Database" from LambdaLuke]]></description>
+        <accepts>Model-DAL-Database.html</accepts>
+    </rule>
+    <rule id="5c32e0f0">
+        <description>Created after removal of "Create a Database Using EF" from LambdaLuke</description>
+        <accepts>Create-a-Database-Using-EF.html</accepts>
+    </rule>
+    <rule id="471dff9f">
+        <description>Created after removal of "Entity Framework" from LambdaLuke</description>
+        <accepts>Entity-Framework.html</accepts>
+    </rule>
+    <rule id="2fd50045">
+        <description>Created after removal of "Tutorial - Move Endpoints Into Seperate Class" from LambdaLuke
+        </description>
+        <accepts>Tutorial-Move-Endpoints-Into-Seperate-Class.html</accepts>
+    </rule>
+    <rule id="3a010656">
+        <description>Created after removal of "Tutorial - Database and Repository" from LambdaLuke</description>
+        <accepts>Tutorial-Database-and-Repository.html</accepts>
+    </rule>
+    <rule id="7f2d1908">
+        <description>Created after removal of "Tutorial - Add Put and Delete" from LambdaLuke</description>
+        <accepts>Tutorial-Add-Put-and-Delete.html</accepts>
+    </rule>
+    <rule id="4f56cccd">
+        <description>Created after removal of "Tutorial - Add Endpoints" from LambdaLuke</description>
+        <accepts>Tutorial-Add-Endpoints.html</accepts>
+    </rule>
+    <rule id="48cd1b6">
+        <description><![CDATA[Created after removal of "Add a Modal & Data Store" from LambdaLuke]]></description>
+        <accepts>Add-a-Modal-Data-Store.html</accepts>
+    </rule>
+    <rule id="2e7faaba">
+        <description>Created after removal of "Tutorial - Entitiy Framework" from LambdaLuke</description>
+        <accepts>Tutorial.html</accepts>
+    </rule>
 </rules>

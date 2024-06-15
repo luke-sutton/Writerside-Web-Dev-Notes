@@ -1,4 +1,4 @@
-# Create a Database Using EF
+# Modal, DAL &amp; Database - Entity Framework
 
 ### Install Necessary Libraries
 
@@ -22,6 +22,11 @@ public class AddressBook
     public string? Address { get; set; }
 }
 ```
+
+Note:
+: The Id field will be recognised by entity framework that it is to be used
+for indexing and will be set as a key field in the database (therefore will
+handle the creation and ensuring the entry is unique)
 
 ### Add Connection String
 

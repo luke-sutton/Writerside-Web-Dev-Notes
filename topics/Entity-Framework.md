@@ -1,3 +1,0 @@
-# Entity Framework
-
-Start typing here...
