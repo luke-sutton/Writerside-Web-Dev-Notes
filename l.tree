@@ -22,12 +22,15 @@
     </toc-element>
     <toc-element topic="TypeScript.md"/>
     <toc-element topic="Vue.md">
+        <toc-element topic="Create-a-Clean-Vue-Project.md"/>
         <toc-element topic="Options-API-vs-Composition-API.md"/>
         <toc-element topic="Refs-Reactive-Objects-Non-Reactive-Data.md"/>
         <toc-element topic="Methods-Computed-Watch.md"/>
         <toc-element topic="Lifecycle-Hooks.md"/>
         <toc-element topic="Directives.md"/>
-        <toc-element topic="Vue-Router.md"/>
+        <toc-element topic="Vue-Router.md">
+            <toc-element topic="Install-Vue-Router-Manually.md"/>
+        </toc-element>
         <toc-element topic="Lists-Teleport-Template-Refs-nextTick.md"/>
         <toc-element topic="Child-Components-Props-Emits.md"/>
         <toc-element topic="Composables.md"/>
@@ -78,7 +81,11 @@
                 <toc-element topic="Create-a-Repository.md"/>
                 <toc-element topic="Add-Endpoints.md"/>
                 <toc-element topic="Create-a-Standard-API-Response.md"/>
-                <toc-element topic="Authentication-Authorization.md"/>
+                <toc-element topic="Authentication-Authorization.md">
+                    <toc-element topic="Add-Roles.md"/>
+                </toc-element>
+                <toc-element topic="Parameter-Binding.md"/>
+                <toc-element topic="Filters-in-Minimal-API.md"/>
             </toc-element>
             <toc-element topic="Controller-API.md">
                 <toc-element topic="Update-Program-cs.md"/>
@@ -100,6 +107,7 @@
         <toc-element topic="Creating-a-Database-Schema-Table.md"/>
         <toc-element topic="Insert-Update-and-Delete.md"/>
         <toc-element topic="Retrieving-Data.md"/>
+        <toc-element topic="Stored-Procedures.md"/>
     </toc-element>
     <toc-element topic="Git.md"/>
     <toc-element topic="Design-Patterns.md">

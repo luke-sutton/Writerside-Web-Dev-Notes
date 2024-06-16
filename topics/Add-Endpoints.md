@@ -96,6 +96,8 @@ When data is needed for a get single request (where the identifier will be part 
 identifier also needs to be passed in -
 
 ```C#
+app.MapGet("/api/addressbook/{id:int}", GetAddressBookById);
+
 private static async Task<IResult> GetAddressBookById(IAddressBookRepository _repo, int id)
 {
     return await _repo.GetAsync(id);

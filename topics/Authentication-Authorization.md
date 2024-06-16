@@ -507,6 +507,21 @@ app.MapGet("/api/coupon", GetAllCoupon)
             .RequireAuthorization();
 ```
 
+Alternatively, you can add the Authorize attribute to the method the endpoint calls -
+
+```C#
+[Authorize]
+private async static Task<IResult> GetAllCoupon(ICouponRepository _couponRepo, ILogger<Program> _logger)
+{
+    _logger.Log(LogLevel.Information, "Getting all Coupons");
+    APIResponse response = new();
+    response.Result = await _couponRepo.GetAllAsync();
+    response.isSuccess = true;
+    response.StatusCode = HttpStatusCode.OK;
+    return Results.Ok(response);
+}
+```
+
 ### Test in Swagger
 
 You should now be able to run the app, and test the authorization in swagger. First use the login endpoint and copy

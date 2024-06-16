@@ -239,4 +239,20 @@
         <description>Created after removal of "Tutorial - Entitiy Framework" from LambdaLuke</description>
         <accepts>Tutorial.html</accepts>
     </rule>
+    <rule id="3d7e53e4">
+        <description>Created after removal of "Add Roles" from LambdaLuke</description>
+        <accepts>Add-Roles.html</accepts>
+    </rule>
+    <rule id="34b12f78">
+        <description>Created after removal of "Login with JWT" from LambdaLuke</description>
+        <accepts>Login-with-JWT.html</accepts>
+    </rule>
+    <rule id="17669240">
+        <description>Created after removal of "Authentication with JWT" from LambdaLuke</description>
+        <accepts>Authentication-with-JWT.html</accepts>
+    </rule>
+    <rule id="3f5b790f">
+        <description>Created after removal of "Helpers" from LambdaLuke</description>
+        <accepts>Helpers.html</accepts>
+    </rule>
 </rules>
