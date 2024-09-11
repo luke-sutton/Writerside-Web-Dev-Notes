@@ -255,4 +255,8 @@
         <description>Created after removal of "Helpers" from LambdaLuke</description>
         <accepts>Helpers.html</accepts>
     </rule>
+    <rule id="63ca1bb2">
+        <description>Created after removal of "Create a Clean Vue Project" from LambdaLuke</description>
+        <accepts>Create-a-Clean-Vue-Project.html</accepts>
+    </rule>
 </rules>

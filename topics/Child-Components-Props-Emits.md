@@ -24,6 +24,100 @@ const showModal = ref(false);
 </script>
 ```
 
+### Props
+
+Props are used to pass data down from a parent to a child component.
+
+To create a prop you add it to the tag for the child component   
+In this example we are passing the title as a prop -
+
+```HTML
+<Modal v-if="showModal" title="My modal title (via prop)">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequuntur dolor eaque in, ipsa laborum
+    natus nobis, nostrum omnis rem, repudiandae sequi voluptatibus? Atque beatae dignissimos earum, exercitationem fugiat quibusdam?
+  </p>
+</Modal>
+```
+
+Within the child component you must then create a variable called props and assign it the define props method -
+
+```Javascript
+const props = defineProps()
+```
+
+Then the relevent prop details should be passed in, either as an array -
+
+```Javascript
+const props = defineProps(['title'])
+```
+
+Or as an object -
+
+```Javascript
+const props = defineProps({
+  title: {
+    type: String,
+    default: 'No title specified'
+  }
+})
+```
+
+And then access it within the template -
+
+```HTML
+<h1>{{ props.title }}</h1>
+// or
+<h1>{{ title }}</h1>
+```
+
+### Emits
+
+Emits are used to pass events up from a child component to its parent.
+
+To create an emit within the child component you must create an emit variable assigned
+to the defineEmits method -
+
+```Javascript
+const emit = defineEmits()
+```
+
+And then pass in the appropriate emits -
+
+```Javascript
+const emit = defineEmits(['hideModal'])
+```
+
+Then within the template these can be assigned to a click function using $emit -
+
+```HTML
+<button @click="$emit('hideModal')">Hide modal</button>
+```
+
+Then within the parent component you listen for the emit by using @ and the emits name within the tag
+for the child component -
+
+```HTML
+<div class="modals">
+<h1>Modals</h1>
+<button @click="showModal = true">Show modal</button>
+<Modal v-if="showModal"
+       title="My modal title (via prop)"
+       @hideModal="showModal = false">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequuntur dolor eaque in, ipsa laborum
+    natus nobis, nostrum omnis rem, repudiandae sequi voluptatibus? Atque beatae dignissimos earum, exercitationem fugiat quibusdam?
+  </p>
+</Modal>
+</div>
+```
+
+To emit an event programmatically from the script section you can trigger it from a method -
+
+```Javascript
+const handleButtonClick = () => {
+  emit('hideModal');
+}
+```
+
 ### Slots
 
 Slots are used to pass html elements down from the parent to the child component.
@@ -123,100 +217,6 @@ const slots = useSlots()
 
 console.log(slots.title())
 </script>
-```
-
-### Props
-
-Props are used to pass data down from a parent to a child component.
-
-To create a prop you add it to the tag for the child component   
-In this example we are passing the title as a prop -
-
-```HTML
-<Modal v-if="showModal" title="My modal title (via prop)">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequuntur dolor eaque in, ipsa laborum
-    natus nobis, nostrum omnis rem, repudiandae sequi voluptatibus? Atque beatae dignissimos earum, exercitationem fugiat quibusdam?
-  </p>
-</Modal>
-```
-
-Within the child component you must then create a variable called props and assign it the define props method -
-
-```Javascript
-const props = defineProps()
-```
-
-Then the relevent prop details should be passed in, either as an array -
-
-```Javascript
-const props = defineProps(['title'])
-```
-
-Or as an object -
-
-```Javascript
-const props = defineProps({
-  title: {
-    type: String,
-    default: 'No title specified'
-  }
-})
-```
-
-And then access it within the template -
-
-```HTML
-<h1>{{ props.title }}</h1>
-// or
-<h1>{{ title }}</h1>
-```
-
-### Emits
-
-Emits are used to pass events up from a child component to its parent.
-
-To create an emit within the child component you must create an emit variable assigned 
-to the defineEmits method -
-
-```Javascript
-const emit = defineEmits()
-```
-
-And then pass in the appropriate emits -
-
-```Javascript
-const emit = defineEmits(['hideModal'])
-```
-
-Then within the template these can be assigned to a click function using $emit -
-
-```HTML
-<button @click="$emit('hideModal')">Hide modal</button>
-```
-
-Then within the parent component you listen for the emit by using @ and the emits name within the tag
-for the child component -
-
-```HTML
-<div class="modals">
-<h1>Modals</h1>
-<button @click="showModal = true">Show modal</button>
-<Modal v-if="showModal"
-       title="My modal title (via prop)"
-       @hideModal="showModal = false">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequuntur dolor eaque in, ipsa laborum
-    natus nobis, nostrum omnis rem, repudiandae sequi voluptatibus? Atque beatae dignissimos earum, exercitationem fugiat quibusdam?
-  </p>
-</Modal>
-</div>
-```
-
-To emit an event programmatically from the script section you can trigger it from a method -
-
-```Javascript
-const handleButtonClick = () => {
-  emit('hideModal');
-}
 ```
 
 ### modelValue

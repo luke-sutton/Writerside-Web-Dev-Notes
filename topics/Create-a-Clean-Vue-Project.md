@@ -1,12 +1,25 @@
 # Create a Clean Vue Project
 
-Note:
-: To start a new project in Webstorm -   
-After selecting new project, select Vue.js. In the location setting add the location plus add a folder that will
-be the name of the project, then un-tick "Use the default project setup"
+Create a new project wither by using the command line -
 
-The project setup will run in the console, select the options you wish to use or install
+```Bash
+npm create vue@latest
+```
 
-Run npm install (webstorm does this via popup)
+Or in WebStorm select new project, Vue, then un-tick use default options if you wish to use router or pinia etc
 
-Open the index.html file and change the title to the name for your app
+Answer the questions as they are displayed in the command line regarding what options you would like installed
+
+Run npm install (this is run via popup in WebStorm)
+
+### Remove Unneeded Code and Files
+
+Within the src folder, delete the contents of the assets, components and views folders, and also the contents of the
+store folder if you are using pinia
+
+open the App.vue file and delete everthing witin the script and style tags, delete everything from within the template
+tags except router-view (if you are using vue router)
+
+If you are using vue router - open the index.js file within the router folder and deelete any imported views and 
+any routes within the routes array
+
