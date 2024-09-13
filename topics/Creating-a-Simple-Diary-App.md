@@ -1,4 +1,6 @@
-# Creating a Simple Diary App
+# Creating the Database
+
+These are the steps required to set up and connect to the database, and create the required table etc
 
 ## Create the Model for the Database
 
@@ -63,10 +65,22 @@ public string Content { get; set; } = string.Empty;
 public DateTime Created { get; set; } = DateTime.Now;
 ```
 
-## Creating the Database
+## Run SQL Server
 
-First, ensure that SQL Server is up and running.   
+First, ensure that SQL Server is up and running in a docker container.   
 Use the following guide to set this up if required: [Install MS SQL Server On Mac](Install-MS-SQL-Server-On-Mac.md)
+
+Open DataGrip (either app or plugin) select connect to database, then select add data source manually.   
+Set data source to Microsoft SQL Server   
+Enter port number as 1433
+Enter the server name as localhost   
+Enter the user name as appropriate   
+Enter the password as appropriate   
+Click test connection   
+If test was successful click connect to database
+
+
+## Add a Connection String
 
 Next, we need to add a connection string to link our application to the database.
 
@@ -90,6 +104,8 @@ Update the appsettings.json file with a connection string:
 For the database field, you should enter whatever you would like the created database to be called. For user id and
 password, you should use the appropriate details for your SQL Server instance.
 
+## Install the Required Packages
+
 Next, we need to install EntityFrameworkCore in our application.   
 Go to the Nuget Package manager, and search for and add the following packages to the project:
 
@@ -99,3 +115,105 @@ Go to the Nuget Package manager, and search for and add the following packages t
 
 Note:
 : If you go the csproj file, you will now see the references to the added packages.
+
+## Create a Database Context Class
+
+next, we need to create a database context class called `ApplicationDbContext`, which is a part of Entity Framework
+Core. This context class is used to interact with the database.
+
+Create a new folder within the project called Data. Then add a new class file called ApplicationDbContext:
+
+```C#
+namespace lambdaluke_mvc_example.Data;
+
+public class ApplicationDbContext
+{
+    
+}
+```
+
+Add a constructor and inherit from `DbContext`, which is a class from EF Core that manages database connections and is
+used to query or save data to the database. Pass in a parameter called `options` of type
+`DbContextOptions<ApplicationDbContext>`.`DbContextOptions` encapsulates all the configuration related to `DbContext`,
+such as database connection strings, database provider (SQL Server, SQLite, etc.), and other database-specific settings.
+Pass this to the base class using `: base(options)`. This ensures that the DbContext is properly configured with those
+options.
+
+```C#
+using Microsoft.EntityFrameworkCore;
+
+namespace lambdaluke_mvc_example.Data;
+
+public class ApplicationDbContext : DbContext
+{
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+    {
+        
+    }
+}
+```
+
+Add a DbSet property of type DiaryEntries (the model we created for our table)
+
+```C#
+using lambdaluke_mvc_example.Models;
+using Microsoft.EntityFrameworkCore;
+
+namespace lambdaluke_mvc_example.Data;
+
+public class ApplicationDbContext : DbContext
+{
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+    {
+        
+    }
+    
+    public DbSet<DiaryEntry> DiaryEntries { get; set; }
+}
+```
+
+DbSet is a property declaration within the ApplicationDbContext class, which is part of an Entity Framework Core 
+context. This property maps the DiaryEntry model class to a table in the database.
+
+## Add a Service
+
+Next, we need to register our database context class as a service by adding the following line to the Program.cs file:
+
+```C#
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+```
+
+This line registers our class as a service, then configures it to use SQL Server as the database provider, then
+retrieves our connection string.
+
+This registers ApplicationDbContext as a service in the application's dependency injection container.
+This setup enables the application to inject ApplicationDbContext wherever needed and ensures it is properly configured
+to interact with the specified SQL Server database.
+
+## Add a Migration
+
+A migration is an instruction to how we want to modify our database.
+
+Right click on the project name in the solution explorer, select Entity Framework Core then select add migration.
+
+The add migration window will open, with a default name for the migration of 'Initial'. You can either keep this name
+or change it to something like the name for our table.   
+Press ok.
+
+Once the process has finished a Migrations folder will be added to the project. This folder contains the class files
+with the instruction to build our table.
+
+Now, to run the migration to actually create the database and table, right-click on the solution name, select Entity
+Framework Core, then select update database, then press ok on the window that opens.
+
+To view our table in the database open DataGrip, right-click on the connection, select tools then select manage
+shown schemas. Select the name of the database you created (it will have been given the name you set in your
+connection string). Then you can expand the options within the database until you see tables, and the name of
+our new table (DiaryEntries).
+
+Double-clicking on the table name will show the table columns.
+
+Note:
+: If the database does not appear in the list of available schemas, try refreshing the connection, or select add
+all schemas.

@@ -79,6 +79,7 @@
         <toc-element topic="Basic-CRUD-MVC-App.md">
             <toc-element topic="Controllers-and-Views.md"/>
             <toc-element topic="Creating-a-Simple-Diary-App.md"/>
+            <toc-element topic="Creating-Controllers-and-Views.md"/>
         </toc-element>
         <toc-element topic="API.md">
             <toc-element topic="Minimal-API.md">
