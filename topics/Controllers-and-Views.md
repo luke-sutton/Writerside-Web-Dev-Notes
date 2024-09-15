@@ -1,190 +1,241 @@
-# Understanding the Default Project
+# Controllers and Views
 
-## Controllers and Views
+## Add a Controller
 
-Here is a basic explanation of the controllers and views in the default project.
+Add a new class file to the controllers folder called DiaryEntriesController.
 
-Controllers handle the logic and flow of the application, while views are responsible for displaying the data to the
-user. In the default project, controllers can be found in the "Controllers" folder and views can be found in the "Views"
-folder.
-
-In the controllers folder, you will find a file called HomeController.cs. This home controller dictates what the home
-view will do. The name 'Home' that appears before the word controller in the title needs to have a folder with the
-same name within the views' folder. That folder should contain files that match the names of the actions listed in
-the home controller (Index and Privacy for the default app).
-
-IActionResult methods within the home controller:
+Inherit from the Controller base class, then add an IActionResult called index that returns a view.
 
 ```C#
+using Microsoft.AspNetCore.Mvc;
+
+namespace lambdaluke_mvc_example.Controllers;
+
+public class DiaryEntriesController : Controller
+{
     public IActionResult Index()
     {
         return View();
     }
+}
 ```
 
-When the above method Index() is called from the home controller, the view named index will be returned from within
-the home folder in views. It knows where to look using the name of the controller and the method. It knows to look
-in the home folder as that is the name of the controller, and it knows to return the index view as that is the name of
-the IActionResult method.
+## Creating Views
 
-## _Layout.cshtml View
+Now we need to create the view to go with our controller.
 
-_Layout.cshtml view is a shared layout file that contains the common elements of all views in the project. It
-typically includes the HTML structure, navigation menu, and other elements that are common across multiple pages.
+Add a new folder called DiaryEntries (to match the name of the controller) inside the Views folder.
 
-```HTML
+Inside the DiaryEntries folder, add a new razor file called Index.cshtml (to match the name of our action method).
 
-<div class="container">
-    <main role="main" class="pb-3">
-        @RenderBody()
-    </main>
+You can now test that the controller and view are working. Enter some text such as hello world into the view.
+Run the application and type /diaryentries/index our new page should now be visible.
+
+We can now add a link to our new page in the header navigation. Open the layout view and look for the existing links
+(Home and Privacy).   
+Copy one of these links and paste iit below them. Change the value of the asp-controller attribute to our controller
+name (DiaryEntries), and change the value of the asp-action attribute to our view name (Index).   
+Give the `<a>` tag a name of My Diary.
+
+```C#
+<li class="nav-item">
+    <a class="nav-link text-dark" asp-area="" asp-controller="DiaryEntries" asp-action="Index">My Diary</a>
+</li>
+```
+
+## Create the View for the Table
+
+Add the following to the DiaryEntries Index page:
+
+```Razor
+@model List<DiaryEntry>
+
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Date</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var entry in Model)
+        {
+            <tr>
+                <td>@entry.Title</td>
+                <td>@entry.Content</td>
+                <td>@entry.Created</td>
+                <td>Edit and Delete</td>
+            </tr>
+        }
+        </tbody>
+    </table>
 </div>
 ```
 
-Between the header and footer code within this view is the above div containing a section called main. This contains
-a function called RenderBody. It is this line that loads the rest of the views within the application.
+The first line declares that the view expects a model of type `List<DiaryEntry>`. This list will be used to generate the
+table rows dynamically. 
 
-How does the layout file get loaded?
+The classes used define a responsive table that will adapt to different screen sizes. - `table-responsive` is a
+Bootstrap class that makes the table scrollable when needed. - `table`, `table-striped`, and `table-hover` are
+Bootstrap classes used for styling the table. 
 
-The _ViewStart.cshtml file is a special file automatically executed before any view is rendered. It is used to
-set the layout file for all views in the project. By default, the _ViewStart.cshtml file in the Shared folder sets the
-layout file to _Layout.cshtml. However, you can customize this file to set a different layout file for specific views or
-areas of your project.
+The `@foreach` loop iterates over each `DiaryEntry` object in the `Model` (which is a list of `DiaryEntry`). - For each
+`entry` in the list, a new table row (`<tr>`) is created. 
 
-The default view loaded by RenderBody() is set within the main Program.cs file:
+Viewing this page will currently display an error as the controller does not know how to access the database
 
-```C#
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
-```
+## Add a GET Request to the Controller
 
-So we can see above that the index action within the home controller is called to load the default view.
-When the user clicks a link etc. to request a new page, the contents of the RenderBody() function are replaced with the
-requested view.
-
-At the end of the body section in the layout file is this line:
+Add a private readonly field of type `ApplicationDbContext` with an appropriate name such as _db or _dbContext
 
 ```C#
-@await RenderSectionAsync("Scripts", required: false)
-```
+using lambdaluke_mvc_example.Data;
+using Microsoft.AspNetCore.Mvc;
 
-This line is used to render any scripts that are specific to a particular view. It is optional and can be omitted
-if there are no scripts to render.
+namespace lambdaluke_mvc_example.Controllers;
 
-So what this means is, that you can add the following to the bottom of a view:
-
-```C#
-@section Scripts {
-
-}
-```
-
-And here you can add any JavaScript code required by that view.
-
-## ViewImports and ValidationScriptsPartial
-
-ViewImports.cshtml is located in the Views folder. This file contains using statements for the views, models and tag
-helpers in the project. This file allows you to use any view and model within your project without having to declare it
-with a using statement at the top of the view file. Tag helpers are the .net commands used inline such as asp-controller
-and asp-action. This file is what gives you access to them in your views.
-
-ValidationScriptsPartial.cshtml is a partial view that includes the necessary JavaScript files for client-side
-validation. It is typically included in the layout file and is used to enable client-side validation for forms in the
-project.
-
-## appsettings.json
-
-The appsettings.json file is a configuration file that stores various settings for the application. It is typically used
-to store connection strings, API keys, and other sensitive information. Multiple appsettings files can be created so
-that separate connection strings etc can be stored for use in different environments such as dev and live.
-
-## program.cs
-
-The program.cs file is the entry point of the application. It contains the Main method which is the starting point of
-the application. This method sets up the web host and configures the application's services and middleware.
-
-```C#
-var builder = WebApplication.CreateBuilder(args);
-```
-
-This line initializes a new instance of WebApplicationBuilder using the provided args. The CreateBuilder method sets up
-the application's configuration sources, logging, and other essential services needed to build the web application.
-
-```C#
-builder.Services.AddControllersWithViews();
-```
-
-Here, services are being added to the Dependency Injection (DI) container.
-AddControllersWithViews is a method call that registers services required for controllers and views in an ASP.NET Core
-MVC application. This enables the Model-View-Controller (MVC) pattern, with controllers that can render views.
-
-```C#
-var app = builder.Build();
-```
-
-After configuring services, the builder.Build() method is called, which compiles everything into a WebApplication
-instance. This app instance will be used to configure and run the application.
-
-```C#
-if (!app.Environment.IsDevelopment())
+public class DiaryEntriesController : Controller
 {
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+    private readonly ApplicationDbContext _db;
+    
+    public IActionResult Index()
+    {
+        return View();
+    }
 }
 ```
 
-This line checks if the current environment is not a development environment.
-When in a non-development environment, this line adds a middleware to the application's request pipeline that will
-handle exceptions. Instead of showing detailed error information (which you might want to avoid in production for
-security reasons), this middleware will direct the user to a generic error page.
-The "/Home/Error" argument specifies the path where the error-handling controller action is located.
+This sets up a way for our controller to interact with the database.
 
-HSTS stands for HTTP Strict Transport Security. This is a web security policy mechanism that helps to protect websites
-against protocol downgrade attacks and cookie hijacking.
-The app.UseHsts() method enforces this policy by adding a Strict-Transport-Security header to responses. The default
-duration for this policy is 30 days.
+Next, add a constructor and pass in a parameter of type `ApplicationDbContext`, then assign this parameter to the
+field we just created
 
 ```C#
-app.UseHttpsRedirection();
+using lambdaluke_mvc_example.Data;
+using Microsoft.AspNetCore.Mvc;
+
+namespace lambdaluke_mvc_example.Controllers;
+
+public class DiaryEntriesController : Controller
+{
+    private readonly ApplicationDbContext _db;
+
+    public DiaryEntriesController(ApplicationDbContext db)
+    {
+        _db = db;
+    }
+    
+    public IActionResult Index()
+    {
+        return View();
+    }
+}
 ```
 
-This middleware redirects HTTP requests to HTTPS. This is an important security feature ensuring that communications
-between the client and server are encrypted.
+Note:
+: This is an example of dependency injection. We are injecting an instance of `ApplicationDbContext`, this is 
+possible as we set it as a service in the program.cs file, which allows us to access it throughout our application.
+
+Now, within the action method, add a variable of type `List<DiaryEntry>` and set it to equal the diary entries in 
+the database. Then, pass this variable into the view
 
 ```C#
-app.UseStaticFiles();
+using lambdaluke_mvc_example.Data;
+using lambdaluke_mvc_example.Models;
+using Microsoft.AspNetCore.Mvc;
+
+namespace lambdaluke_mvc_example.Controllers;
+
+public class DiaryEntriesController : Controller
+{
+    private readonly ApplicationDbContext _db;
+
+    public DiaryEntriesController(ApplicationDbContext db)
+    {
+        _db = db;
+    }
+    
+    public IActionResult Index()
+    {
+        List<DiaryEntry> objDiaryEntryList = _db.DiaryEntries.ToList();
+        
+        return View(objDiaryEntryList);
+    }
+}
 ```
 
-This middleware serves static files such as HTML, CSS, JavaScript, and images. It looks for these files in the default
-wwwroot folder or any other specified directory.
+The results should now be visible in the view.
+
+## Add some Styling
+
+We will now make some amendments to the layout and our new page to improve the styling. We will use Bootstrap
+classes to achieve this as bootstrap is automatically included in .NET projects.
+
+Within the layout view change the class within the nav component from bg-white to bg-primary.   
+Add the class bg-light to the first anchor tag, then change the class bg-dark to bg-light to the anchor tags within
+the list items.
+
+Next, we will add an icon to our header link using a bootstrap icon
+
+[Bootstap Icons:](https://icons.getbootstrap.com) 
+
+Go to the bootstrap icons website and search for an appropriate image such as notebook. Then add wither the icon font
+code (this requires either installing bootstrap icons via npm, or adding the link text to the header in the layout)
+
+```HTML
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css">
+```
+
+Or you can use copy HTML on the website to pasete in the SVG code for the image.
+
+Add this before the text `My Diary` in the anchor tag in the navbar.
+
+Now lets add some styling to our diary page.  Add the following to the top of the index page after the model declaration
+
+```Razor
+<div class="container">
+    <div class="row pt-4">
+        <div class="col-6">
+            <a class="btn btn-primary">
+                <i class="bi bi-journal-plus"></i> Create new Diary Entry
+            </a>
+        </div>
+        <div class="col-6 text-end">
+            <h2>Diary Entries</h2>
+        </div>
+    </div>
+</div>
+```
+
+## Add the Create Controller Method and View
+
+Add a Create action method to the controller that returns a view
 
 ```C#
-app.UseRouting();
+public IActionResult Create()
+{
+    return View();
+}
 ```
 
-Adds routing capabilities to the middleware pipeline. This middleware looks at the incoming request and maps it to an
-endpoint (such as a controller action) based on matching route patterns.
+Next, create the view that this method will return. Add a new file to the DiaryEntries view folder called
+Create.cshtml. Add some dummy text to the page for testing purposes, we should now be able to view the page by going
+to the URL /DiaryEntries/create.
 
-```C#
-app.UseAuthorization();
+Note:
+: Remember that IActionResult methods listen out for incoming URL requests, so the method we added listens for 
+requests from /DiaryEntries/create and then performs the code within the controller, which for now is return view.
+
+Next, we will use tag helpers to call our new action.
+
+```Razor
+<a class="btn btn-primary" asp-controller="DiaryEntries" asp-action="Create">
+    <i class="bi bi-journal-plus"></i> Create new Diary Entry
+</a>
 ```
 
-This middleware ensures that the user is authorized to access secured resources based on the app's defined authorization
-policies. It must be placed after app.UseRouting but before any endpoint mapping (app.UseEndpoints or similar).
-
-```C#
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
-```
-
-This line defines the default route for the application. This means requests like /Home/Index or /Home/Index/1 will be
-mapped to the Index action of the Home controller.
-
-```C#
-app.Run();
-```
-
-This line starts the application and begins listening for incoming HTTP requests.
+The asp-controller tag helper states which controller should be used, and the asp-action tag-helper states which
+IActionResult method is called.

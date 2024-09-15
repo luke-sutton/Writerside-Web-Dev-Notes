@@ -65,21 +65,6 @@ public string Content { get; set; } = string.Empty;
 public DateTime Created { get; set; } = DateTime.Now;
 ```
 
-## Run SQL Server
-
-First, ensure that SQL Server is up and running in a docker container.   
-Use the following guide to set this up if required: [Install MS SQL Server On Mac](Install-MS-SQL-Server-On-Mac.md)
-
-Open DataGrip (either app or plugin) select connect to database, then select add data source manually.   
-Set data source to Microsoft SQL Server   
-Enter port number as 1433
-Enter the server name as localhost   
-Enter the user name as appropriate   
-Enter the password as appropriate   
-Click test connection   
-If test was successful click connect to database
-
-
 ## Add a Connection String
 
 Next, we need to add a connection string to link our application to the database.
@@ -191,6 +176,20 @@ This registers ApplicationDbContext as a service in the application's dependency
 This setup enables the application to inject ApplicationDbContext wherever needed and ensures it is properly configured
 to interact with the specified SQL Server database.
 
+## Run SQL Server
+
+First, ensure that SQL Server is up and running in a docker container.   
+Use the following guide to set this up if required: [Install MS SQL Server On Mac](Install-MS-SQL-Server-On-Mac.md)
+
+Open DataGrip (either app or plugin) select connect to database, then select add data source manually.   
+Set data source to Microsoft SQL Server   
+Enter port number as 1433
+Enter the server name as localhost   
+Enter the user name as appropriate   
+Enter the password as appropriate   
+Click test connection   
+If test was successful click connect to database
+
 ## Add a Migration
 
 A migration is an instruction to how we want to modify our database.
@@ -217,3 +216,94 @@ Double-clicking on the table name will show the table columns.
 Note:
 : If the database does not appear in the list of available schemas, try refreshing the connection, or select add
 all schemas.
+
+## Seeding Data
+
+Within the ApplicationDbContext class, add a new method called OnModelCreating (just typing the name of this method and
+hitting tab will auto create it).
+
+```C#
+using lambdaluke_mvc_example.Models;
+using Microsoft.EntityFrameworkCore;
+
+namespace lambdaluke_mvc_example.Data;
+
+public class ApplicationDbContext : DbContext
+{
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+    {
+        
+    }
+    
+    public DbSet<DiaryEntry> DiaryEntries { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+    }
+}
+```
+
+Within this method, add the following line:
+
+```C#
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    base.OnModelCreating(modelBuilder);
+
+    modelBuilder.Entity<DiaryEntry>().HasData();
+}
+```
+
+This tells Entity Framework Core that we are configuring the DiaryEntry table in our database (represented by our
+DiaryEntry class).   
+HasData is a method that seeds initial data into the table, so the next step os to provide this method with some data:
+
+```C#
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    base.OnModelCreating(modelBuilder);
+
+    modelBuilder.Entity<DiaryEntry>().HasData(
+        new DiaryEntry
+        {
+            Id = 1,
+            Title = "Went Hiking",
+            Content = "Went hiking with Joe!",
+            Created = DateTime.Now
+        },
+        new DiaryEntry
+        {
+            Id = 2,
+            Title = "Went Shopping",
+            Content = "Went shopping with Joe!",
+            Created = DateTime.Now
+        },
+        new DiaryEntry
+        {
+            Id = 3,
+            Title = "Went Diving",
+            Content = "Went diving with Joe!",
+            Created = DateTime.Now
+        }
+    );
+}
+```
+
+Now that we have our data ready to be seeded into our table, we need to create a new migration (A new migration is
+required any time we wish to make a change to our database using Entity Framework).
+
+Follow the steps to create the migration as before, right-click on the solution, select Entity Framework and create
+migration.   
+GIve the migration an appropriate name such as AddedSeedingDataDiaryEntry, this will add a new migration file to
+the migrations' folder. Then, as before, run update database. You should now see the data in your database table.
+
+Note:
+: If you reveice an error when trying to run update database stating that the moldel has changed, add this to the
+AppicationDBContext calss to ignore the error -
+```C#
+protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+{
+    optionsBuilder.ConfigureWarnings(warnings => warnings.Ignore(RelationalEventId.PendingModelChangesWarning));
+}
+```
