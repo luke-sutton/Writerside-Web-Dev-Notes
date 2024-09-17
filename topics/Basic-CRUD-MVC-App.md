@@ -22,6 +22,17 @@ Press Create.
 You can now run the project which will be a very basic website with a header with links to a home and privacy pages,
 plus a footer.
 
+## DOTNET Watch
+
+DOTNET Watch is A tool that enables a developer to build and run an application automatically whenever changes are made
+to the source code.   
+
+This greatly improves the developer experience, to enable it in Rider go to edit configurations, then click the plus
+symbol to add a new configuration. Select dotnet-watch from the list and give the configuration a name.   
+In order to have it launch Chrome instead of the default browser, select the checkbox next to suppress launching
+browser, then in the before launch section, click add and select launch web browser. Select Chrome as the browser
+then add `http://localhost:5127` as the URL.
+
 ## Understanding the Project Files
 
 The project files are organized in the following structure:

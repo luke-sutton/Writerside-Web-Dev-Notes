@@ -239,3 +239,109 @@ Next, we will use tag helpers to call our new action.
 
 The asp-controller tag helper states which controller should be used, and the asp-action tag-helper states which
 IActionResult method is called.
+
+Now we will complete the view, replace the Create.cshtml with the following:
+
+```Razor
+@model DiaryEntry
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h2>Create Diary Entry</h2>
+                </div>
+                <div class="card-body">
+                    <form asp-action="" method="post">
+                        <div class="form-group mb-3">
+                            <label asp-for="Title" class="form-label">Title</label>
+                            <input asp-for="Title" class="form-control" placeholder="Enter a title"/>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="Content" class="form-label">Content</label>
+                            <input asp-for="Content" aria-owns="5" class="form-control" placeholder="Enter what you did that day"/>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="Created" class="form-label">Date</label>
+                            <input asp-for="Created" class="form-control" type="date"/>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <button type="submit" class="btn btn-primary">Create</button>
+                            <a asp-controller="DiaryEntries" asp-action="Index" class="btn btn-secondary">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+```
+
+## Create an Entry and Store it in the Database
+
+In the DiaryEntryController we currently have the following IActionResult that returns are view:
+
+```C#
+public IActionResult Create()
+{
+    return View();
+}
+```
+
+But now we need a new action to create a database entry.  So duplicate the existing action we just mentioned, 
+then add an HttpPost attribute. As we want to create an entry pass in a DiaryEntry object:
+
+```C#
+[HttpPost]
+public IActionResult Create(DiaryEntry objDiaryEntry)
+{
+    return View();
+}
+```
+
+To link this controller action to our form in the view, update the asp-action on the form tag to equal Create:
+
+```Razor
+<form asp-action="Create" method="post">
+```
+
+We already included access to our database within the controller via dependency injection, so now we can access the 
+database with _db (the name we gave to our ApplicationDbContext property), access the DiaryEntries table, then call the
+add method and pass in our object:
+
+```C#
+public IActionResult Create(DiaryEntry objDiaryEntry)
+{
+    _db.DiaryEntries.Add(objDiaryEntry);
+    
+    return View();
+}
+```
+
+Then save the changes with
+
+
+```C#
+_db.SaveChanges();
+```
+
+Next we can specify what view we would like the user to be redirected to after the entry is saved using the 
+RedirectToAction method:
+
+```C#
+[HttpPost]
+public IActionResult Create(DiaryEntry objDiaryEntry)
+{
+    _db.DiaryEntries.Add(objDiaryEntry);
+    _db.SaveChanges();
+    
+    return RedirectToAction("Index");
+}
+```
+
+If you want to redirect to a view that is not within the same controller you can achieve this by passing in the
+name of the controller as a 2nd parameter.
+
+Now If you fill out the form we should be redirected back to the main diary entries page and see our new entry
+being retrieved from the database.
