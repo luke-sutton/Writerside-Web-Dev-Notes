@@ -77,7 +77,7 @@ string with your chosen message
 public string Title { get; set; } = string.Empty;
 ```
 
-Other validations can be added here as well. For example we can set a string length requirement using the 
+Other validations can be added here as well. For example, we can set a string length requirement using the 
 `StringLength` attribute
 
 ```C#
@@ -114,11 +114,11 @@ public IActionResult Create(DiaryEntry objDiaryEntry)
 }
 ```
 
-In the if statement here we are checking if the title property of the submited obhject is too short. If it is, 
+In the if statement here we are checking if the title property of the submitted object is too short. If it is, 
 the `AddModelError` method is called on `ModelState` and we pass in the name of the field that we want to attach
 the error too, and then the error wording.
 
-The next if statement checks if the model is valid and our prevoius code to update the dabase is moved here.
+The next if statement checks if the model is valid and our previous code to update the database is moved here.
 
 Outside of this a new return statement is added to return the existing view along with the supplied object. This will
 reload the form the user is currently on, with there entered data and display the error we have entered.

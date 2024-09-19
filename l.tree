@@ -79,8 +79,9 @@
         <toc-element topic="Basic-CRUD-MVC-App.md">
             <toc-element topic="Understanding-the-Default-Project.md"/>
             <toc-element topic="Creating-the-Database.md"/>
-            <toc-element topic="Controllers-and-Views.md"/>
+            <toc-element topic="CRUD-Create-and-Read.md"/>
             <toc-element topic="Client-and-Server-Side-Validation.md"/>
+            <toc-element topic="CRUD-Update-and-Delete.md"/>
         </toc-element>
         <toc-element topic="API.md">
             <toc-element topic="Minimal-API.md">

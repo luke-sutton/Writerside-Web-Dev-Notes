@@ -1,4 +1,7 @@
-# Controllers and Views
+# CRUD - Create and Read
+
+Here we will create the controller and views required to implement the create and read elements of our CRUD
+application.
 
 ## Add a Controller
 
